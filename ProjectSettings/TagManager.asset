@@ -45,6 +45,12 @@ TagManager:
   - name: Background
     uniqueID: 389218567
     locked: 0
-  - name: Player
+  - name: Soldiers
     uniqueID: 1338097493
+    locked: 0
+  - name: Tower
+    uniqueID: 1899270711
+    locked: 0
+  - name: Collectables
+    uniqueID: 3255585275
     locked: 0

@@ -67,16 +67,10 @@ public class HookMovement : MonoBehaviour
 
         if (hookState == HookState.firedTowardsTarget)
         { 
-            tempPosition -= transform.up * shootingSpeed * Time.deltaTime; 
-            //if (tempPosition.x > HookPositionBeforeShooting.x + maxShootingDistanceOnX)
-            //{
-            //    print("Stop");
-            //    hookState = HookState.firedGoingBack;
-            //}
+            tempPosition -= transform.up * shootingSpeed * Time.deltaTime;
 
             if (currentFrameDistance > maxShootingDistanceOnX)
             {
-                print("Stop");
                 hookState = HookState.firedGoingBack;
             }
         }
@@ -108,7 +102,6 @@ public class HookMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && hookState == HookState.rotating)
         {
             HookPositionBeforeShooting = transform.position;
-            print(HookPositionBeforeShooting);
             hookState = HookState.firedTowardsTarget;
         }
     }
