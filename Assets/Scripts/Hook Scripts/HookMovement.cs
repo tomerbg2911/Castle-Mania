@@ -14,7 +14,7 @@ public class HookMovement : MonoBehaviour
     }
 
     private HookState hookState; // current hook state
-    public Vector3 HookPositionBeforeShooting; // the hook's position before being fired
+    private Vector3 HookPositionBeforeShooting; // the hook's position before being fired
 
     // rotation related vars
     public Transform rotationAnchor;
@@ -25,8 +25,16 @@ public class HookMovement : MonoBehaviour
     // shooting related vars
     public float shootingSpeed;
     public float maxShootingDistanceOnX; // how far will the hook go during shooting
+    private float lastFrameDistance;
+    private float currentFrameDistance;
 
+    // rope renderer component
+    private RopeRenderer ropeRenderer;
 
+    void Awake()
+    {
+        ropeRenderer = GetComponent<RopeRenderer>();
+    }
 
     void Start()
     {
@@ -39,8 +47,9 @@ public class HookMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInput();
-        HookShooting();
+        GetInput(); // get keyboard inputs
+        HookShooting(); // managing hook shooting
+        RenderRope(); // rendering the hook's rope
     }
 
     void Rotate(Vector3 axis)
@@ -54,11 +63,18 @@ public class HookMovement : MonoBehaviour
     void HookShooting()
     {
         Vector3 tempPosition = transform.position;
+        currentFrameDistance = Vector3.Distance(tempPosition, HookPositionBeforeShooting);
 
         if (hookState == HookState.firedTowardsTarget)
         { 
             tempPosition -= transform.up * shootingSpeed * Time.deltaTime; 
-            if (tempPosition.x > HookPositionBeforeShooting.x + maxShootingDistanceOnX)
+            //if (tempPosition.x > HookPositionBeforeShooting.x + maxShootingDistanceOnX)
+            //{
+            //    print("Stop");
+            //    hookState = HookState.firedGoingBack;
+            //}
+
+            if (currentFrameDistance > maxShootingDistanceOnX)
             {
                 print("Stop");
                 hookState = HookState.firedGoingBack;
@@ -68,7 +84,7 @@ public class HookMovement : MonoBehaviour
         else if (hookState == HookState.firedGoingBack)
         { 
             tempPosition += transform.up * shootingSpeed * Time.deltaTime;
-            if ((tempPosition.x - HookPositionBeforeShooting.x) < 0.1f)
+            if (currentFrameDistance < 5f && currentFrameDistance > lastFrameDistance)
             {
                 tempPosition = HookPositionBeforeShooting;
                 hookState = HookState.rotating;
@@ -76,6 +92,7 @@ public class HookMovement : MonoBehaviour
         }
 
         transform.position = tempPosition;
+        lastFrameDistance = currentFrameDistance;
     }
 
     void GetInput()
@@ -94,5 +111,11 @@ public class HookMovement : MonoBehaviour
             print(HookPositionBeforeShooting);
             hookState = HookState.firedTowardsTarget;
         }
+    }
+
+    void RenderRope()
+    {
+        bool enableRenderer = hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack;
+        ropeRenderer.renderLine(transform.position, enableRenderer);
     }
 }

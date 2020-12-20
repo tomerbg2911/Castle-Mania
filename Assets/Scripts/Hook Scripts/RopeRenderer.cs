@@ -7,25 +7,13 @@ public class RopeRenderer : MonoBehaviour
 
     private LineRenderer lineRenderer;
     public Transform startPosition;
-    private float lineWidth = 0.05f;
+    public float lineWidth = 0.2f;
 
     void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.startWidth = lineWidth;
         lineRenderer.enabled = false;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void renderLine(Vector3 endPosition, bool enableRenderer)
@@ -38,6 +26,8 @@ public class RopeRenderer : MonoBehaviour
             }
 
             lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, startPosition.position);
+            lineRenderer.SetPosition(1, endPosition);
         }
 
         else
@@ -47,23 +37,6 @@ public class RopeRenderer : MonoBehaviour
             {
                 lineRenderer.enabled = false;
             }
-
-        }
-
-        if(lineRenderer.enabled)
-        {
-            Vector3 temp = startPosition.position;
-            temp.z = 0f;
-
-            startPosition.position = temp;
-
-            temp = endPosition;
-            temp.z = 0f;
-
-            endPosition = temp;
-
-            lineRenderer.SetPosition(0, startPosition.position);
-            lineRenderer.SetPosition(1, endPosition);
         }
     }
 }
