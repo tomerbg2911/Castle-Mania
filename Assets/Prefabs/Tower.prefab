@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &263993491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263993492}
+  m_Layer: 0
+  m_Name: Collectable Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263993492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263993491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.21, y: -1.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4443295582331898988}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411202752
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3449105353209770695}
   m_Layer: 0
-  m_Name: RABASHHH
+  m_Name: walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,7 +1308,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4443295582265891029}
-  - component: {fileID: 989018950569539456}
   - component: {fileID: 7929346880031909106}
   m_Layer: 0
   m_Name: Tower
@@ -1306,26 +1335,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &989018950569539456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4443295582265891028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3ed7f2f18e87f4784f358684db637b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 100
-  isGateOpen: 0
-  maxNumOfSoldiers: 5
-  currentNumOfSoldiers: 5
-  up: 0
-  down: 0
-  shoot: 0
-  switchWeapon: 0
 --- !u!114 &7929346880031909106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,9 +1351,9 @@ MonoBehaviour:
   isGateOpen: 0
   maxNumOfSoldiers: 5
   currentNumOfSoldiers: 5
-  up: 0
-  down: 0
-  shoot: 0
+  up: 119
+  down: 115
+  shoot: 100
   switchWeapon: 0
 --- !u!1 &4443295582301945087
 GameObject:
@@ -1439,7 +1448,6 @@ GameObject:
   - component: {fileID: 4443295582331898991}
   - component: {fileID: 2110590361}
   - component: {fileID: 2110590362}
-  - component: {fileID: 4443295582331898992}
   - component: {fileID: 4443295582331898993}
   - component: {fileID: 8344483668424391108}
   m_Layer: 0
@@ -1461,6 +1469,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4443295581300444093}
+  - {fileID: 263993492}
   m_Father: {fileID: 4443295581884990976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 88.33401}
@@ -1543,6 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d26359826930cb4b886860c833e4ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectableAnchor: {fileID: 263993492}
   rotationAnchor: {fileID: 4443295581300444093}
   rotationSpeed: 5
   minRotationZ: 0.5
@@ -1658,22 +1668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {fileID: 411202753}
   lineWidth: 0.2
---- !u!58 &4443295582331898992
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4443295582331898987}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 0.93}
-  serializedVersion: 2
-  m_Radius: 1.56
 --- !u!50 &4443295582331898993
 Rigidbody2D:
   serializedVersion: 4
@@ -1708,7 +1702,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 0.93}
+  m_Offset: {x: -0.2, y: -1.11}
   serializedVersion: 2
   m_Radius: 1.56
 --- !u!1 &4443295582406105669

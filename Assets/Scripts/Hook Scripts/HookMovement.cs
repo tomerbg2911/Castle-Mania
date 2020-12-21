@@ -34,6 +34,12 @@ public class HookMovement : MonoBehaviour
     // rope renderer component
     private RopeRenderer ropeRenderer;
 
+    // keyboard keys
+    private KeyCode up;
+    private KeyCode down;
+    private KeyCode shoot;
+    private KeyCode switchWeapon;
+
     void Awake()
     {
         ropeRenderer = GetComponent<RopeRenderer>();
@@ -45,6 +51,14 @@ public class HookMovement : MonoBehaviour
         Time.timeScale = 1; // TODO: figure out why deltaTime equals 0 without this line
         HookPositionBeforeShooting = transform.position;
         hookState = HookState.rotating;
+
+        // keyboard keys init
+        up = GetComponentInParent<Tower>().up;
+        down = GetComponentInParent<Tower>().down;
+        shoot = GetComponentInParent<Tower>().shoot;
+        switchWeapon = GetComponentInParent<Tower>().switchWeapon;
+
+        Debug.Log("up is " + up);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -113,15 +127,15 @@ public class HookMovement : MonoBehaviour
 
     void GetInput()
     {
-        if (Input.GetKey(KeyCode.DownArrow) && transform.rotation.z > minRotationZ)
+        if (Input.GetKey(down) && transform.rotation.z > minRotationZ)
         {
             Rotate(Vector3.back);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && transform.rotation.z < maxRotationZ)
+        if (Input.GetKey(up) && transform.rotation.z < maxRotationZ)
         {
             Rotate(Vector3.forward);
         }
-        if(Input.GetKeyDown(KeyCode.Space) && hookState == HookState.rotating)
+        if(Input.GetKeyDown(shoot) && hookState == HookState.rotating)
         {
             HookPositionBeforeShooting = transform.position;
             hookState = HookState.firedTowardsTarget;
