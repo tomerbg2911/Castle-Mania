@@ -9,12 +9,15 @@ public class ManaCollectable : MonoBehaviour
     public float gravity;
     public bool isCatched;
     public Transform hookAttached;
+    public Transform anchor;
+    private Vector3 distance;
 
     // Start is called before the first frame update
     void Start()
     {
         hookAttached = null;
         isCatched = false;
+        distance = transform.position - anchor.position;
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class ManaCollectable : MonoBehaviour
         }
         else
         {
-            transform.position = hookAttached.position;
+            transform.position = hookAttached.position + distance;
         }
     }
 

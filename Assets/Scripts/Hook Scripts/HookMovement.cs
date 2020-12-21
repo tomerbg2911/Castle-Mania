@@ -15,9 +15,12 @@ public class HookMovement : MonoBehaviour
 
     private HookState hookState; // current hook state
     private Vector3 HookPositionBeforeShooting; // the hook's position before being fired
+    
+    // Anchors
+    public Transform collectableAnchor;
+    public Transform rotationAnchor;
 
     // rotation related vars
-    public Transform rotationAnchor;
     public float rotationSpeed = 10f;
     public float minRotationZ = 0f;
     public float maxRotationZ = 360f;
@@ -56,7 +59,7 @@ public class HookMovement : MonoBehaviour
             //manaCollectable.transform.Rotate(rotation,Space.Self);
 
             manaCollectable.gravity = 0;
-            manaCollectable.hookAttached = transform;
+            manaCollectable.hookAttached = collectableAnchor;
 
             hookState = HookState.firedGoingBack;
         
