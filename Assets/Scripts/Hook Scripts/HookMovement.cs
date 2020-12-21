@@ -71,7 +71,7 @@ public class HookMovement : MonoBehaviour
             //Vector3 rotation = new Vector3(0,0,0);
             //manaCollectable.transform.Rotate(rotation,Space.Self);
 
-            manaCollectable.gravity = 0;
+            manaCollectable.fallingSpeed = 0;
             manaCollectable.hookAttached = collectableAnchor;
 
             hookState = HookState.firedGoingBack;

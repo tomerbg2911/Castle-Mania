@@ -6,7 +6,7 @@ public class ManaCollectable : MonoBehaviour
 {
 
     public int numOfMana;
-    public float gravity;
+    public float fallingSpeed;
     public bool isCatched;
     public Transform hookAttached;
     public Transform anchor;
@@ -30,7 +30,7 @@ public class ManaCollectable : MonoBehaviour
     {
         if (hookAttached == null)
         {
-            transform.position -= transform.up * gravity * Time.deltaTime;
+            transform.position -= transform.up * fallingSpeed * Time.deltaTime;
         }
         else
         {
