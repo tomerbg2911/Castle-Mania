@@ -1344,16 +1344,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4443295582265891028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3ed7f2f18e87f4784f358684db637b, type: 3}
+  m_Script: {fileID: 11500000, guid: 869bb6b9aa5851a4b98485c3d4153333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 100
   isGateOpen: 0
   maxNumOfSoldiers: 5
   currentNumOfSoldiers: 5
-  up: 119
-  down: 115
-  shoot: 100
+  up: 0
+  down: 0
+  shoot: 0
   switchWeapon: 0
 --- !u!1 &4443295582301945087
 GameObject:
