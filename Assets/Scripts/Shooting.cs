@@ -68,7 +68,7 @@ public class Shooting : MonoBehaviour
     {
         Fired = true;
         Rigidbody2D bulletInstance = Instantiate(bullet, FireTransform.position, FireTransform.rotation) as Rigidbody2D;
-        bulletInstance.velocity = currentLaunchForce * FireTransform.right;
+        bulletInstance.velocity = currentLaunchForce * FireTransform.up;
 
         //ShootingAudio.clip = fireClip;
         //ShootingAudio.Play();
