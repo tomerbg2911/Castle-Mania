@@ -1432,6 +1432,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &520309021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520309023}
+  - component: {fileID: 520309022}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &520309022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520309021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d24aa942db6bb47a9e7cc2f3a724b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectableTimeInterval: 0
+  collectableMinX: 0
+  collectableMaxX: 0
+--- !u!4 &520309023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520309021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.2451653, y: 8.477642, z: 0.765625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &554098740
 GameObject:
   m_ObjectHideFlags: 0
@@ -6215,6 +6261,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
+--- !u!1 &4443295582265891028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4443295582265891028, guid: 230ada1f75e39554491c7c45a5979b55,
+    type: 3}
+  m_PrefabInstance: {fileID: 4443295581022605904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4443295582265891029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443295582265891028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3ed7f2f18e87f4784f358684db637b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 100
+  isGateOpen: 0
+  maxNumOfSoldiers: 5
+  currentNumOfSoldiers: 5
+  up: 0
+  down: 0
+  shoot: 0
+  switchWeapon: 0
 --- !u!1 &4443295582331898987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4443295582331898987, guid: 230ada1f75e39554491c7c45a5979b55,
