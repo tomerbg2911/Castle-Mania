@@ -24,7 +24,7 @@ public class HookMovement : MonoBehaviour
 
     // shooting related vars
     public float shootingSpeed;
-    public float maxShootingDistanceOnX; // how far will the hook go during shooting
+    public float maxShootingDistance; // how far will the hook go during shooting
     private float lastFrameDistance;
     private float currentFrameDistance;
 
@@ -44,12 +44,31 @@ public class HookMovement : MonoBehaviour
         hookState = HookState.rotating;
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PickUp")
+        {
+            collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            ManaCollectable manaCollectable = collision.gameObject.GetComponent<ManaCollectable>();
+
+            // TODO: rotate the pickup relatively to the hook
+            //Vector3 rotation = new Vector3(0,0,0);
+            //manaCollectable.transform.Rotate(rotation,Space.Self);
+
+            manaCollectable.gravity = 0;
+            manaCollectable.hookAttached = transform;
+
+            hookState = HookState.firedGoingBack;
+        
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         GetInput(); // get keyboard inputs
         HookShooting(); // managing hook shooting
-        RenderRope(); // rendering the hook's rope
+        RenderRope(); // rendering the hook's rope 
     }
 
     void Rotate(Vector3 axis)
@@ -69,7 +88,7 @@ public class HookMovement : MonoBehaviour
         { 
             tempPosition -= transform.up * shootingSpeed * Time.deltaTime;
 
-            if (currentFrameDistance > maxShootingDistanceOnX)
+            if (currentFrameDistance > maxShootingDistance)
             {
                 hookState = HookState.firedGoingBack;
             }
