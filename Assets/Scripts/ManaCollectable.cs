@@ -10,14 +10,14 @@ public class ManaCollectable : MonoBehaviour
     public bool isCatched;
     public Transform hookAttached;
     public Transform anchor;
-    private Vector3 distance;
+    private Vector3 distanceFromAnchor;
 
     // Start is called before the first frame update
     void Start()
     {
         hookAttached = null;
         isCatched = false;
-        distance = transform.position - anchor.position;
+        distanceFromAnchor = transform.position - anchor.position;
     }
 
     // Update is called once per frame
@@ -34,7 +34,15 @@ public class ManaCollectable : MonoBehaviour
         }
         else
         {
-            transform.position = hookAttached.position + distance;
+            transform.position = hookAttached.position + distanceFromAnchor;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "Floor")
+        {
+            Destroy(gameObject);
         }
     }
 

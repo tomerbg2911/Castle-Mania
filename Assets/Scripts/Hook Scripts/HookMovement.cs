@@ -15,6 +15,7 @@ public class HookMovement : MonoBehaviour
 
     private HookState hookState; // current hook state
     private Vector3 HookPositionBeforeShooting; // the hook's position before being fired
+    private GameObject hookedCollectableGameObject = null;
     
     // Anchors
     public Transform collectableAnchor;
@@ -48,7 +49,6 @@ public class HookMovement : MonoBehaviour
     void Start()
     {
         // init variables
-        Time.timeScale = 1; // TODO: figure out why deltaTime equals 0 without this line
         HookPositionBeforeShooting = transform.position;
         hookState = HookState.rotating;
 
@@ -57,16 +57,15 @@ public class HookMovement : MonoBehaviour
         down = GetComponentInParent<Tower>().down;
         shoot = GetComponentInParent<Tower>().shoot;
         switchWeapon = GetComponentInParent<Tower>().switchWeapon;
-
-        Debug.Log("up is " + up);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PickUp")
+        if (collision.gameObject.tag == "PickUp" && hookState == HookState.firedTowardsTarget)
         {
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            ManaCollectable manaCollectable = collision.gameObject.GetComponent<ManaCollectable>();
+            hookedCollectableGameObject = collision.gameObject;
+            ManaCollectable manaCollectable = hookedCollectableGameObject.GetComponent<ManaCollectable>();
 
             // TODO: rotate the pickup relatively to the hook
             //Vector3 rotation = new Vector3(0,0,0);
@@ -92,7 +91,7 @@ public class HookMovement : MonoBehaviour
     {
         if(hookState == HookState.rotating)
         {
-            transform.RotateAround(rotationAnchor.position, axis, rotationSpeed);
+            transform.RotateAround(rotationAnchor.position, axis, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -118,6 +117,7 @@ public class HookMovement : MonoBehaviour
             {
                 tempPosition = HookPositionBeforeShooting;
                 hookState = HookState.rotating;
+                Destroy(hookedCollectableGameObject); // TODO: add animation
             }
         }
 
@@ -127,13 +127,14 @@ public class HookMovement : MonoBehaviour
 
     void GetInput()
     {
-        if (Input.GetKey(down) && transform.rotation.z > minRotationZ)
+        if (Input.GetKey(down) && transform.eulerAngles.z > minRotationZ)
         {
-            Rotate(Vector3.back);
+            print("***" + transform.eulerAngles.z);
+            Rotate(-transform.forward);
         }
-        if (Input.GetKey(up) && transform.rotation.z < maxRotationZ)
+        if (Input.GetKey(up) && transform.eulerAngles.z < maxRotationZ)
         {
-            Rotate(Vector3.forward);
+            Rotate(transform.forward);
         }
         if(Input.GetKeyDown(shoot) && hookState == HookState.rotating)
         {
