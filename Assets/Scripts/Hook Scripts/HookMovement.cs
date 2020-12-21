@@ -129,7 +129,7 @@ public class HookMovement : MonoBehaviour
     {
         if (Input.GetKey(down) && transform.eulerAngles.z > minRotationZ)
         {
-            print("***" + transform.eulerAngles.z);
+            //print("***" + transform.eulerAngles.z);
             Rotate(-transform.forward);
         }
         if (Input.GetKey(up) && transform.eulerAngles.z < maxRotationZ)
