@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HookMovement : MonoBehaviour
+public class Hook : MonoBehaviour
 {
     enum HookState
     {
@@ -19,12 +19,6 @@ public class HookMovement : MonoBehaviour
     
     // Anchors
     public Transform collectableAnchor;
-    public Transform rotationAnchor;
-
-    // rotation related vars
-    public float rotationSpeed = 10f;
-    public float minRotationZ = 0f;
-    public float maxRotationZ = 360f;
 
     // shooting related vars
     public float shootingSpeed;
@@ -36,8 +30,6 @@ public class HookMovement : MonoBehaviour
     private RopeRenderer ropeRenderer;
 
     // keyboard keys
-    private KeyCode up;
-    private KeyCode down;
     private KeyCode shoot;
     private KeyCode switchWeapon;
 
@@ -53,8 +45,6 @@ public class HookMovement : MonoBehaviour
         hookState = HookState.rotating;
 
         // keyboard keys init
-        up = GetComponentInParent<Tower>().up;
-        down = GetComponentInParent<Tower>().down;
         shoot = GetComponentInParent<Tower>().shoot;
         switchWeapon = GetComponentInParent<Tower>().switchWeapon;
     }
@@ -85,14 +75,6 @@ public class HookMovement : MonoBehaviour
         GetInput(); // get keyboard inputs
         HookShooting(); // managing hook shooting
         RenderRope(); // rendering the hook's rope 
-    }
-
-    void Rotate(Vector3 axis)
-    {
-        if(hookState == HookState.rotating)
-        {
-            transform.RotateAround(rotationAnchor.position, axis, rotationSpeed * Time.deltaTime);
-        }
     }
 
     void HookShooting()
@@ -127,15 +109,6 @@ public class HookMovement : MonoBehaviour
 
     void GetInput()
     {
-        if (Input.GetKey(down) && transform.eulerAngles.z > minRotationZ)
-        {
-            //print("***" + transform.eulerAngles.z);
-            Rotate(-transform.forward);
-        }
-        if (Input.GetKey(up) && transform.eulerAngles.z < maxRotationZ)
-        {
-            Rotate(transform.forward);
-        }
         if(Input.GetKeyDown(shoot) && hookState == HookState.rotating)
         {
             HookPositionBeforeShooting = transform.position;

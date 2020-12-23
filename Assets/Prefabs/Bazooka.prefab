@@ -99,8 +99,8 @@ MonoBehaviour:
   weaponMinAngle: 50
   weaponMaxAngle: 130
   rotationSpeed: 100
-  minRotationZ: 0
-  maxRotationZ: 360
+  minRotationZ: -80
+  maxRotationZ: 80
   rotationAnchor: {fileID: 532151528083553383}
 --- !u!114 &4500459232479959895
 MonoBehaviour:

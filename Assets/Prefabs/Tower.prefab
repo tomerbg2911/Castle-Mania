@@ -1446,6 +1446,7 @@ GameObject:
   - component: {fileID: 4443295582331898990}
   - component: {fileID: 4443295582331898989}
   - component: {fileID: 4443295582331898991}
+  - component: {fileID: 2169700903165583673}
   - component: {fileID: 2110590361}
   - component: {fileID: 2110590362}
   - component: {fileID: 4443295582331898993}
@@ -1559,6 +1560,22 @@ MonoBehaviour:
   maxRotationZ: 0.85
   shootingSpeed: 35
   maxShootingDistance: 50
+--- !u!114 &2169700903165583673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443295582331898987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623556672eb045f4192c0fad9c7dcfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  minRotationZ: 0
+  maxRotationZ: 360
+  rotationAnchor: {fileID: 0}
 --- !u!120 &2110590361
 LineRenderer:
   m_ObjectHideFlags: 0
