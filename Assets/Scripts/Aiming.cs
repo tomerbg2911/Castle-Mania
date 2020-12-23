@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Aiming : MonoBehaviour {
-    Transform weapon;
-    public float weaponRotationSpeed = 50f;
-    public float weaponMinAngle = 0f;
-    public float weaponMaxAngle = 70f;
 
+    //Transform weapon;
+    //public float weaponRotationSpeed = 50f;
+    //public float weaponMinAngle = 0f;
+    //public float weaponMaxAngle = 70f;
+
+    // keyboard keys
     private KeyCode up;
     private KeyCode down;
-    private KeyCode shoot;
-    private KeyCode switchWeapon;
 
     public float rotationSpeed = 10f;
     public float minRotationZ = 0f;
@@ -20,19 +20,18 @@ public class Aiming : MonoBehaviour {
     public Transform rotationAnchor;
     void Start()
     {
-        weapon =  GameObject.Find("Bazooka").transform;
-        Debug.Log("weapon is : "+ weapon.gameObject);
+        // init keyboard keys
         up = GetComponentInParent<Tower>().up;
         down = GetComponentInParent<Tower>().down;
-        shoot = GetComponentInParent<Tower>().shoot;
-        switchWeapon = GetComponentInParent<Tower>().switchWeapon;
-        //Debug.Log("up key is : " + up);
+
+        //weapon = transform;
+        //Debug.Log("weapon is : "+ transform.gameObject);
     }
 
      void Update()
     {
         GetInput();
-     }
+    }
 
     /*void RotateWeapon(float axis)
    {
@@ -46,23 +45,19 @@ public class Aiming : MonoBehaviour {
 
     void GetInput()
     {
-        if (Input.GetKey(down) && transform.eulerAngles.z > minRotationZ)
+        float rotationAngleZ = (transform.eulerAngles.z > 180) ? transform.eulerAngles.z - 360 : transform.eulerAngles.z;
+        if (Input.GetKey(down) && rotationAngleZ > minRotationZ)
         {
-            
             Rotate(-transform.forward);
         }
-        if (Input.GetKey(up) && transform.eulerAngles.z < maxRotationZ)
+        if (Input.GetKey(up) && rotationAngleZ < maxRotationZ)
         {
             Rotate(transform.forward);
         }
-      
     }
 
     void Rotate(Vector3 axis)
     {
-       // if (hookState == HookState.rotating)
-       // {
-            transform.RotateAround(rotationAnchor.position, axis, rotationSpeed * Time.deltaTime);
-        //}
+        transform.RotateAround(rotationAnchor.position, axis, rotationSpeed * Time.deltaTime);
     }
 }

@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Soldiers
+  - Bazooka Bullets
   - 
   - 
   - 
@@ -42,9 +42,6 @@ TagManager:
   - name: Background
     uniqueID: 389218567
     locked: 0
-  - name: Soldiers
-    uniqueID: 1338097493
-    locked: 0
   - name: Tower
     uniqueID: 1899270711
     locked: 0
@@ -53,4 +50,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Soldiers
+    uniqueID: 1338097493
     locked: 0
