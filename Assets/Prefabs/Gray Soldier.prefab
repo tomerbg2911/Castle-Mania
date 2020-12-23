@@ -1,26 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!50 &341335302
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4069513671300801522}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &341335303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47,7 +26,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76, y: 1.27}
   m_EdgeRadius: 0
---- !u!114 &2165978279224838839
+--- !u!95 &1083860069
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069513671300801522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f95011488a8e0ef4092c2714f12c4854, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1083860068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,11 +54,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4069513671300801522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99bc0f188bc5e14ca56c6dbef30475f, type: 3}
+  m_Script: {fileID: 11500000, guid: c62a4b5bfc016674eae04171eab5c6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 5
-  target: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  spawnPoint: {fileID: 0}
+  dead: 0
+  speed: 5
+  step: 0
 --- !u!1001 &4070379290845234294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,13 +78,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1466169791162244, guid: ff5440183347b26498850dddeb186ec7, type: 3}
+      propertyPath: m_TagString
+      value: Soldier
+      objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.2
+      value: 18.62381
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.7
+      value: -6.4192543
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122,15 +128,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4742713171981488, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalPosition.y
