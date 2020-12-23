@@ -72,9 +72,15 @@ public class Hook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        EnableRotating();
         GetInput(); // get keyboard inputs
         HookShooting(); // managing hook shooting
         RenderRope(); // rendering the hook's rope 
+    }
+
+    void EnableRotating()
+    {
+        GetComponent<Aiming>().enabled = hookState == HookState.rotating;
     }
 
     void HookShooting()
