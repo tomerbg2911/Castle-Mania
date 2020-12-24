@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  minRotationZ: -80
-  maxRotationZ: 80
+  minRotationZ: -25
+  maxRotationZ: 60
   rotationAnchor: {fileID: 532151528083553383}
 --- !u!114 &4500459232479959895
 MonoBehaviour:
