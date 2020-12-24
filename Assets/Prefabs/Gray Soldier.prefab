@@ -45,6 +45,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &766945016604557364
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069513671300801522}
+  m_Enabled: 1
+  m_SortingLayerID: 1338097493
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!114 &1083860068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,11 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62a4b5bfc016674eae04171eab5c6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  soldierSlot: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
-  spawnPoint: {fileID: 0}
-  dead: 0
-  speed: 5
+  dead: 1
+  speed: 10
   step: 0
 --- !u!1001 &4070379290845234294
 PrefabInstance:
@@ -128,15 +140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4059847041214860, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4742713171981488, guid: ff5440183347b26498850dddeb186ec7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -346,6 +358,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212339103651313272, guid: ff5440183347b26498850dddeb186ec7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 212330386785624170, guid: ff5440183347b26498850dddeb186ec7,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -434,6 +451,11 @@ PrefabInstance:
     - target: {fileID: 212597497310325334, guid: ff5440183347b26498850dddeb186ec7,
         type: 3}
       propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212597497310325334, guid: ff5440183347b26498850dddeb186ec7,
+        type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
