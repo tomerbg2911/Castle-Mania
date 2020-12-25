@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4204717971939380882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.34, y: -6.88, z: 49.516098}
+  m_LocalPosition: {x: -5.34, y: -6.88, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_Children:
   - {fileID: 4443295582406105670}
@@ -2342,6 +2342,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9106987913664608412, guid: bf16416f11593b4478ba20eec3aae0a1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91780ccf2cdea604196995eac161b998,
+        type: 3}
     - target: {fileID: 8711602350234610253, guid: bf16416f11593b4478ba20eec3aae0a1,
         type: 3}
       propertyPath: targetsRect
@@ -2352,12 +2358,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 561a670f6799a394d9dc9e6e9d3142ca, type: 2}
-    - target: {fileID: 9106987913664608412, guid: bf16416f11593b4478ba20eec3aae0a1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 91780ccf2cdea604196995eac161b998,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf16416f11593b4478ba20eec3aae0a1, type: 3}
 --- !u!4 &6083999783960873846 stripped
