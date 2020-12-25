@@ -18,6 +18,7 @@ public class DragonAiming : MonoBehaviour
     public int numOfTargets = 3;
     private int countTargets = 0;
     private DragonTarget[] dragonTargets;
+    private GameObject finalTarget;
 
 
     // Start is called before the first frame update
@@ -57,8 +58,10 @@ public class DragonAiming : MonoBehaviour
                 // aiming is done, combine all targets and activate DragonShooting
                 isAiming = false;
                 Vector3 combinedTarget = CombineTargets();
-                Instantiate(finalTargetPrefab, combinedTarget, Quaternion.identity, targetsRect);
-                GetComponent<DragonShooting>().Shoot(combinedTarget);
+                finalTarget = Instantiate(finalTargetPrefab, combinedTarget, Quaternion.identity, targetsRect) as GameObject;
+                GetComponent<DragonShooting>().target = combinedTarget;
+                GetComponent<DragonShooting>().Shoot();
+
             }
         }
     }
@@ -78,5 +81,16 @@ public class DragonAiming : MonoBehaviour
             dragonTargetsSum += dragonTarget.transform.position;
         }
         return dragonTargetsSum / numOfTargets;
+    }
+
+    public void destroyAllTargets()
+    {
+        foreach (DragonTarget dragonTarget in dragonTargets)
+        {
+            Destroy(dragonTarget.gameObject);
+        }
+        Destroy(finalTarget);
+        countTargets = 0;
+        isAiming = true;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -15,6 +16,7 @@ public class Tower : MonoBehaviour
     // gate related vars
     private GameObject gateOpen;
     private GameObject gateClosed;
+    public GameObject explosionPrefab;
     public bool isGateOpen;
     public float delayBeforeClosingTheGate = 2f; // after a new soldier was Instantiated
     public float delayBeforeInstantiating = 0.5f;  // before a new soldier is Instantiated
@@ -181,5 +183,25 @@ public class Tower : MonoBehaviour
         }
 
         return availableSlot;
+    }
+
+    public void onDragonFireHitGate()
+    {
+        if(isGateOpen)
+        {
+            print(String.Format("tower {0} hit", playerNumber));
+
+            // show explosion animation
+            GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform) as GameObject;
+            Destroy(explosion, 3);
+        }
+        else
+        {
+            print(String.Format("tower {0} miss", playerNumber));
+
+            // show explosion animation
+            GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform.position, Quaternion.identity) as GameObject;
+            Destroy(explosion, 3);
+        }
     }
 }

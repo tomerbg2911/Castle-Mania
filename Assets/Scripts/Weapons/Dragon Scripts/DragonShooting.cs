@@ -7,6 +7,7 @@ public class DragonShooting : MonoBehaviour
     private Animator animator;
     public GameObject dragonFirePrefab;
     public bool isShooting;
+    public Vector3 target;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,16 @@ public class DragonShooting : MonoBehaviour
         
     }
 
-    public void Shoot(Vector3 target)
+    public void Shoot()
     {
         isShooting = true;
-        animator.SetTrigger("Shoot");
+        animator.SetBool("IsShooting", true);
+    }
+
+    public void spawnFire()
+    {
+        GameObject newFire = Instantiate(dragonFirePrefab, transform.position, transform.rotation) as GameObject;
+        newFire.GetComponent<DragonFire>().fireTarget = target;
+        GetComponent<DragonAiming>().destroyAllTargets();
     }
 }
