@@ -1,16 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Tower : MonoBehaviour
 {
+    enum WeaponTypes
+    {
+        
+    }
     public int playerNumber;
     public int healthPoints = 100;
 
     // gate related vars
     private GameObject gateOpen;
     private GameObject gateClosed;
+    public GameObject explosionPrefab;
     public bool isGateOpen;
     public float delayBeforeClosingTheGate = 2f; // after a new soldier was Instantiated
     public float delayBeforeInstantiating = 0.5f;  // before a new soldier is Instantiated
@@ -32,10 +38,17 @@ public class Tower : MonoBehaviour
     public KeyCode shoot;
     public KeyCode switchWeapon;
 
+    // weapons game objects
+    public GameObject[] weapons;
+    private int activatedWeaponIdx;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        activatedWeaponIdx = weapons.Length - 1; // last weapon idx so we'll switch to the first one
+        SwitchWeapon();
+
         // init gates GameObjects
         GameObject gateParent = transform.Find("gate").gameObject;
         gateOpen = gateParent.transform.Find("gate_open").gameObject;
@@ -49,6 +62,45 @@ public class Tower : MonoBehaviour
             StartCoroutine(instantiateSoldierEnumerator((i + 1) * delayBeforeInstantiating));
         }
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(switchWeapon))
+        {
+            SwitchWeapon();
+        }
+    }
+
+    public void SwitchWeapon()
+    {
+        // check if switching is possible
+        GameObject activatedWeapon = weapons[activatedWeaponIdx];
+        if (activatedWeapon.name.ToLower() == "hook" && activatedWeapon.GetComponent<Hook>().hookState != Hook.HookState.rotating)
+            return;
+
+        // switch weapon
+        activatedWeaponIdx = (activatedWeaponIdx + 1) % weapons.Length; // update the activated weapon
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            GameObject currentWeapon = weapons[i];
+            bool enableThisWeapon = i == activatedWeaponIdx;
+            switch(currentWeapon.name.ToLower())
+            {
+                case "hook":
+                    currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
+                    currentWeapon.GetComponent<HookShooting>().enabled = enableThisWeapon;
+                    break;
+                case "bazooka":
+                    currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
+                    currentWeapon.GetComponent<Shooting>().enabled = enableThisWeapon;
+                    break;
+                case "dragon":
+                    currentWeapon.SetActive(enableThisWeapon);
+                    break;
+            }
+        }
+    }
+
 
     IEnumerator instantiateSoldierEnumerator(float seconds)
     {
@@ -137,5 +189,23 @@ public class Tower : MonoBehaviour
         return availableSlot;
     }
 
+    public void onDragonFireHitGate()
+    {
+        if(isGateOpen)
+        {
+            print(String.Format("tower {0} hit", playerNumber));
 
+            // show explosion animation
+            GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform) as GameObject;
+            Destroy(explosion, 3);
+        }
+        else
+        {
+            print(String.Format("tower {0} miss", playerNumber));
+
+            // show explosion animation
+            GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform.position, Quaternion.identity) as GameObject;
+            Destroy(explosion, 3);
+        }
+    }
 }
