@@ -12,13 +12,9 @@ public class SoldierHealth : MonoBehaviour
     public bool dead;               // if dead - return to spawnPoint
     public float speed;             // speed in which the player returns to his base
     public float step;              // calculated from speed, need it for smoothness of motion
-
+    
     private Tower parentTower;
     private SpriteRenderer spriteRenderer;
-    private Animator anim;
-    public GameObject nakedSoldier;
-    SpriteRenderer[] Children;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +22,7 @@ public class SoldierHealth : MonoBehaviour
         parentTower = transform.parent.GetComponent<Tower>();
         currentHealth = maxHealth;
         step = speed * Time.deltaTime;
-        dead = false;
-        anim = this.GetComponent<Animator>();
-        Children = gameObject.GetComponentsInChildren<SpriteRenderer>();
-        
-
+        dead = false;  
     }
 
     // Update is called once per frame
@@ -39,12 +31,11 @@ public class SoldierHealth : MonoBehaviour
         if (dead == true) // if the soldier is dead return to spawnPoint
         {
             parentTower.setGateOpen(true); // inform the tower that the soldier is dead
-            nakedSoldier.transform.position = Vector3.MoveTowards(nakedSoldier.transform.position, spawnPoint.position, step);
-            if (Vector3.Distance(nakedSoldier.transform.position, spawnPoint.position) < 0.1f)
+            transform.position = Vector3.MoveTowards(transform.position, spawnPoint.position, step);
+            if (Vector3.Distance(transform.position, spawnPoint.position) < 0.1f)
             {
                 // the soldier reached spawnPoint
                 dead = false;
-                Destroy(nakedSoldier);
                 Destroy(gameObject);
                 parentTower.OnSoldierIsBack(soldierSlot);
             }
@@ -59,52 +50,11 @@ public class SoldierHealth : MonoBehaviour
     {
         if(!dead)
         {
-            if(currentHealth > 0)
+            currentHealth += amount;
+            if(currentHealth <= 0)
             {
-                currentHealth += amount;
-                if(currentHealth < 0)
-                {
-
-                    transform.Rotate(transform.up, 180); // flip soldier horizontally
-                    for(int i =0; i <Children.Length; i++)
-                    {
-                        Children[i].enabled = false;
-                    }
-                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                    nakedSoldier = Instantiate(nakedSoldier, transform.position, transform.rotation);
-                    nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
-                    dead = true;
-                }
-                if (amount <= 0)        // we are taking damage
-                {
-                    int num = Random.Range(1, 3);
-                    switch(num)
-                    {
-                        case 1:         //hit shield
-                            if (!anim.GetBool("Shield"))        //we didn't hit Shield yet
-                            { 
-                                anim.SetTrigger("hitShield");
-                                anim.SetBool("Shield", true);
-                            }
-                            else
-                            {
-                                anim.SetTrigger("hitHelmet");
-                            }
-                            break;
-
-                        case 2:
-                            if(!anim.GetBool("Helmet"))       //we didn't hit Helmet yet
-                            {
-                                anim.SetTrigger("hitHelmet");
-                                anim.SetBool("Helmet", true);
-                            }
-                            else
-                            {
-                                anim.SetTrigger("hitHShield");
-                            }
-                            break;
-                    }
-                }
+                dead = true;
+                transform.Rotate(transform.up, 180); // flip soldier horizontally
             }
 
             if(currentHealth >= 100)
@@ -112,11 +62,6 @@ public class SoldierHealth : MonoBehaviour
                 currentHealth = 100;
             }
         }
-    }
-
-    private void DisableChildOnAnimation(int childNum)
-    {
-        transform.GetChild(childNum).gameObject.SetActive(false);     
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

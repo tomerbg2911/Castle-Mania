@@ -28,9 +28,6 @@ public class Tower : MonoBehaviour
     public int maxNumOfSoldiers = 3;
     public int currentNumOfSoldiers = 0;
     private int countNumOfSoldiers = 0;
- 
-    
-
 
     // keyboard keys
     public KeyCode up;
@@ -54,10 +51,9 @@ public class Tower : MonoBehaviour
         gateOpen = gateParent.transform.Find("gate_open").gameObject;
         gateClosed = gateParent.transform.Find("gate_closed").gameObject;
         setGateOpen(false);
-        
 
         // spawn first soldiers
-        for (int i = 0; i < maxNumOfSoldiers; i++)
+        for(int i = 0; i < maxNumOfSoldiers; i++)
         {
             StartCoroutine(instantiateSoldierEnumerator((i + 1) * delayBeforeInstantiating));
         }
