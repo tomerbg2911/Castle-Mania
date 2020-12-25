@@ -5,16 +5,15 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    enum HookState
+    public enum HookState
     {
-        idle, // hook is not in player control
         rotating, // hook is in player control (rotating up and down)
         firedTowardsTarget, // the hook is moving towards a target
-        firedGoingBack, // the hook is moving back to HookPositionBeforeShooting
+        firedGoingBack, // the hook is moving back to hookPositionBeforeShooting
     }
 
-    private HookState hookState; // current hook state
-    private Vector3 HookPositionBeforeShooting; // the hook's position before being fired
+    public HookState hookState; // current hook state
+    private Vector3 hookPositionBeforeShooting; // the hook's position before being fired
     private GameObject hookedCollectableGameObject = null;
     
     // Anchors
@@ -29,9 +28,6 @@ public class Hook : MonoBehaviour
     // rope renderer component
     private RopeRenderer ropeRenderer;
 
-    // keyboard keys
-    private KeyCode shoot;
-    private KeyCode switchWeapon;
 
     void Awake()
     {
@@ -41,12 +37,8 @@ public class Hook : MonoBehaviour
     void Start()
     {
         // init variables
-        HookPositionBeforeShooting = transform.position;
+        hookPositionBeforeShooting = transform.position;
         hookState = HookState.rotating;
-
-        // keyboard keys init
-        shoot = GetComponentInParent<Tower>().shoot;
-        switchWeapon = GetComponentInParent<Tower>().switchWeapon;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -72,21 +64,14 @@ public class Hook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnableRotating();
-        GetInput(); // get keyboard inputs
         HookShooting(); // managing hook shooting
         RenderRope(); // rendering the hook's rope 
-    }
-
-    void EnableRotating()
-    {
-        GetComponent<Aiming>().enabled = hookState == HookState.rotating;
     }
 
     void HookShooting()
     {
         Vector3 tempPosition = transform.position;
-        currentFrameDistance = Vector3.Distance(tempPosition, HookPositionBeforeShooting);
+        currentFrameDistance = Vector3.Distance(tempPosition, hookPositionBeforeShooting);
 
         if (hookState == HookState.firedTowardsTarget)
         { 
@@ -103,8 +88,9 @@ public class Hook : MonoBehaviour
             tempPosition += transform.up * shootingSpeed * Time.deltaTime;
             if (currentFrameDistance < 5f && currentFrameDistance > lastFrameDistance)
             {
-                tempPosition = HookPositionBeforeShooting;
+                tempPosition = hookPositionBeforeShooting;
                 hookState = HookState.rotating;
+                GetComponent<Aiming>().enabled = true; // enable aiming
                 Destroy(hookedCollectableGameObject); // TODO: add animation
             }
         }
@@ -113,18 +99,17 @@ public class Hook : MonoBehaviour
         lastFrameDistance = currentFrameDistance;
     }
 
-    void GetInput()
-    {
-        if(Input.GetKeyDown(shoot) && hookState == HookState.rotating)
-        {
-            HookPositionBeforeShooting = transform.position;
-            hookState = HookState.firedTowardsTarget;
-        }
-    }
-
     void RenderRope()
     {
         bool enableRenderer = hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack;
         ropeRenderer.renderLine(transform.position, enableRenderer);
+    }
+
+    public void Shoot()
+    {
+        GetComponent<Aiming>().enabled = false; // disable aiming while the hook is being used
+        hookPositionBeforeShooting = transform.position;
+        hookState = HookState.firedTowardsTarget;
+
     }
 }
