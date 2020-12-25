@@ -75,6 +75,36 @@ public class SoldierHealth : MonoBehaviour
                     nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
                     dead = true;
                 }
+                if (amount <= 0)        // we are taking damage
+                {
+                    int num = Random.Range(1, 3);
+                    switch(num)
+                    {
+                        case 1:         //hit shield
+                            if (!anim.GetBool("Shield"))        //we didn't hit Shield yet
+                            { 
+                                anim.SetTrigger("hitShield");
+                                anim.SetBool("Shield", true);
+                            }
+                            else
+                            {
+                                anim.SetTrigger("hitHelmet");
+                            }
+                            break;
+
+                        case 2:
+                            if(!anim.GetBool("Helmet"))       //we didn't hit Helmet yet
+                            {
+                                anim.SetTrigger("hitHelmet");
+                                anim.SetBool("Helmet", true);
+                            }
+                            else
+                            {
+                                anim.SetTrigger("hitHShield");
+                            }
+                            break;
+                    }
+                }
             }
 
             if(currentHealth >= 100)
@@ -82,6 +112,11 @@ public class SoldierHealth : MonoBehaviour
                 currentHealth = 100;
             }
         }
+    }
+
+    private void DisableChildOnAnimation(int childNum)
+    {
+        transform.GetChild(childNum).gameObject.SetActive(false);     
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
