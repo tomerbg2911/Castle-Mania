@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DragonAiming : MonoBehaviour
 {
-    private bool isAiming = true;
+    public bool isAiming = true;
 
     // keyboard keys
     private KeyCode shoot;

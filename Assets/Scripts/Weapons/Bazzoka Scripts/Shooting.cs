@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     public int playerNumber = 1;
     public Rigidbody2D bullet;
     public Transform FireTransform;
+    public Transform FlareTransform;
     public Slider AimSlider;
     public AudioSource ShootingAudio;
     public AudioClip ChargingClip;
@@ -75,7 +76,9 @@ public class Shooting : MonoBehaviour
 
         currentLaunchForce = MinLaunchForce;
         AimSlider.gameObject.SetActive(false);
-        
+
+        // play flare animation
+        FlareTransform.GetComponent<Animator>().SetTrigger("Shoot");
 
     }
 }
