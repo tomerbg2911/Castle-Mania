@@ -75,6 +75,8 @@ MonoBehaviour:
   dead: 1
   speed: 10
   step: 0
+  nakedSoldier: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
+    type: 3}
 --- !u!1001 &4070379290845234294
 PrefabInstance:
   m_ObjectHideFlags: 0
