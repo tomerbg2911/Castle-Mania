@@ -5,7 +5,7 @@ using UnityEngine;
 public class ManaCollectable : MonoBehaviour
 {
 
-    public int numOfMana;
+    public int amountOfMana = 1;
     public float fallingSpeed;
     public bool isCatched;
     public Transform hookAttached;

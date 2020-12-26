@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e4cfc6c9abc8b49ae456d120b72344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfMana: 0
-  gravity: 2
+  numOfMana: 1
+  fallingSpeed: 0
   isCatched: 0
   hookAttached: {fileID: 0}
   anchor: {fileID: 7901481604792754680}
