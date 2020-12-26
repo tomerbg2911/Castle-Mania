@@ -6,12 +6,9 @@ using UnityEngine.Rendering;
 
 public class Tower : MonoBehaviour
 {
-    enum WeaponTypes
-    {
-        
-    }
     public int playerNumber;
     public int healthPoints = 100;
+    public int manaAmount = 0;
 
     // gate related vars
     private GameObject gateOpen;
@@ -28,9 +25,6 @@ public class Tower : MonoBehaviour
     public int maxNumOfSoldiers = 3;
     public int currentNumOfSoldiers = 0;
     private int countNumOfSoldiers = 0;
- 
-    
-
 
     // keyboard keys
     public KeyCode up;
@@ -43,48 +37,65 @@ public class Tower : MonoBehaviour
     private int activatedWeaponIdx;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        activatedWeaponIdx = weapons.Length - 1; // last weapon idx so we'll switch to the first one
-        SwitchWeapon();
+        // activate weapon
+        activatedWeaponIdx = 0;
+        EnableActivatedWeapon();
 
         // init gates GameObjects
         GameObject gateParent = transform.Find("gate").gameObject;
         gateOpen = gateParent.transform.Find("gate_open").gameObject;
         gateClosed = gateParent.transform.Find("gate_closed").gameObject;
         setGateOpen(false);
-        
+
 
         // spawn first soldiers
         for (int i = 0; i < maxNumOfSoldiers; i++)
         {
             StartCoroutine(instantiateSoldierEnumerator((i + 1) * delayBeforeInstantiating));
         }
+
+        // set manaAmount amount to 0
+        manaAmount = 0;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(switchWeapon))
+        if (Input.GetKeyDown(switchWeapon))
         {
-            SwitchWeapon();
+            SwitchToNextWeapon();
         }
     }
 
-    public void SwitchWeapon()
+    public void SwitchToNextWeapon()
     {
         // check if switching is possible
-        GameObject activatedWeapon = weapons[activatedWeaponIdx];
-        if (activatedWeapon.name.ToLower() == "hook" && activatedWeapon.GetComponent<Hook>().hookState != Hook.HookState.rotating)
+        if (weapons[activatedWeaponIdx].name.ToLower() == "hook" && weapons[activatedWeaponIdx].GetComponent<Hook>().hookState != Hook.HookState.rotating) // hook is busy
+            return;
+        if (weapons[activatedWeaponIdx].name.ToLower() == "dragon" && weapons[activatedWeaponIdx].GetComponent<DragonAiming>().isAiming) // dragon is busy
             return;
 
-        // switch weapon
+        // switch weapon idx
         activatedWeaponIdx = (activatedWeaponIdx + 1) % weapons.Length; // update the activated weapon
+
+        // skip dragon weapon if there's not enough manaAmount
+        if (weapons[activatedWeaponIdx].name.ToLower() == "dragon" &&
+            manaAmount < weapons[activatedWeaponIdx].GetComponent<DragonAiming>().minAmountOfMana)
+        {
+            activatedWeaponIdx = (activatedWeaponIdx + 1) % weapons.Length;
+        }
+
+        EnableActivatedWeapon();
+    }
+
+    void EnableActivatedWeapon()
+    {
         for (int i = 0; i < weapons.Length; i++)
         {
             GameObject currentWeapon = weapons[i];
             bool enableThisWeapon = i == activatedWeaponIdx;
-            switch(currentWeapon.name.ToLower())
+            switch (currentWeapon.name.ToLower())
             {
                 case "hook":
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
@@ -95,34 +106,22 @@ public class Tower : MonoBehaviour
                     currentWeapon.GetComponent<Shooting>().enabled = enableThisWeapon;
                     break;
                 case "dragon":
-                    currentWeapon.SetActive(enableThisWeapon);
+                    currentWeapon.GetComponent<DragonAiming>().enabled = enableThisWeapon;
                     break;
             }
         }
     }
 
 
-    IEnumerator instantiateSoldierEnumerator(float seconds)
+    // instantiate a new soldier after waitingTime seconds
+    IEnumerator instantiateSoldierEnumerator(float waitingTime)
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(waitingTime);
         InstantiateSoldier();
     }
 
-    public void OnSoldierIsBack(SoldierSlot soldierSlotToFree)
-    {
-        currentNumOfSoldiers--;
 
-        // free the soldierSlot
-        foreach (SoldierSlot slot in soldierSlots)
-        {
-            if (slot == soldierSlotToFree)
-            {
-                slot.isFree = true;
-            }
-        }
-        Invoke("InstantiateSoldier", delayBeforeInstantiating);
-    }
-
+    // instantiate a new soldier
     public void InstantiateSoldier()
     {
         SoldierSlot availableSlot = getAvailableSlot();
@@ -161,17 +160,16 @@ public class Tower : MonoBehaviour
         gateClosed.SetActive(!isGateOpen);
     }
 
-    // TODO: those functions are for using it with Invoke. is there a better way to run func. after delay? (Coroutines?)
-    void openGate()
+    public void openGate()
     {
         setGateOpen(true);
     }
-    void closeGate()
+    public void closeGate()
     {
         setGateOpen(false);
     }
 
-
+    // returns a free SoldierSlot or null if it's all taken
     SoldierSlot getAvailableSlot()
     {
         // search for a free soldier slot
@@ -189,9 +187,10 @@ public class Tower : MonoBehaviour
         return availableSlot;
     }
 
+    // Tower event handlers
     public void onDragonFireHitGate()
     {
-        if(isGateOpen)
+        if (isGateOpen)
         {
             print(String.Format("tower {0} hit", playerNumber));
 
@@ -208,4 +207,33 @@ public class Tower : MonoBehaviour
             Destroy(explosion, 3);
         }
     }
+
+    // activated after a soldier came back to the tower's gate gate
+    public void OnSoldierIsBack(SoldierSlot soldierSlotToFree)
+    {
+        currentNumOfSoldiers--;
+
+        // free the soldierSlot
+        foreach (SoldierSlot slot in soldierSlots)
+        {
+            if (slot == soldierSlotToFree)
+            {
+                slot.isFree = true;
+            }
+        }
+        Invoke("InstantiateSoldier", delayBeforeInstantiating);
+    }
+
+    // activated after the hook fame back to its base with a collectable
+    public void OnCollectableCatch(GameObject collectableGameObject)
+    {
+        ManaCollectable manaCollectable;
+        if ((manaCollectable = collectableGameObject.GetComponent<ManaCollectable>()) != null)
+        {
+            manaAmount += manaCollectable.amountOfMana;
+        }
+
+        Destroy(collectableGameObject);
+    }
+
 }

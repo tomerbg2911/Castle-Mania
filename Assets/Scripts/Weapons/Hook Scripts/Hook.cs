@@ -88,10 +88,15 @@ public class Hook : MonoBehaviour
             tempPosition += transform.up * shootingSpeed * Time.deltaTime;
             if (currentFrameDistance < 5f && currentFrameDistance > lastFrameDistance)
             {
+                // hook came back to it's starting position
                 tempPosition = hookPositionBeforeShooting;
                 hookState = HookState.rotating;
                 GetComponent<Aiming>().enabled = true; // enable aiming
-                Destroy(hookedCollectableGameObject); // TODO: add animation
+                if(hookedCollectableGameObject != null)
+                {
+                    GetComponentInParent<Tower>().OnCollectableCatch(hookedCollectableGameObject);
+                    hookedCollectableGameObject = null;
+                }
             }
         }
 
@@ -110,6 +115,5 @@ public class Hook : MonoBehaviour
         GetComponent<Aiming>().enabled = false; // disable aiming while the hook is being used
         hookPositionBeforeShooting = transform.position;
         hookState = HookState.firedTowardsTarget;
-
     }
 }

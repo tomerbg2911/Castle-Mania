@@ -34,4 +34,10 @@ public class DragonShooting : MonoBehaviour
         newFire.GetComponent<DragonFire>().fireTarget = target;
         GetComponent<DragonAiming>().destroyAllTargets();
     }
+
+    public void OnAnimationFinished()
+    {
+        isShooting = false;
+        animator.SetBool("IsShooting", false);
+    }
 }

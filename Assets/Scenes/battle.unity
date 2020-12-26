@@ -3418,6 +3418,7 @@ MonoBehaviour:
   dead: 0
   speed: 5
   step: 0
+  nakedSoldier: {fileID: 0}
 --- !u!61 &1062573217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4829,11 +4830,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tower Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083999783960873840, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4443295582265891029, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
@@ -6778,15 +6774,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 656604104871843388, guid: 23601f65f1de0b743a9e2a8af33467da,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1601835015748742522, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 656604104871843388, guid: 23601f65f1de0b743a9e2a8af33467da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23601f65f1de0b743a9e2a8af33467da, type: 3}
