@@ -163,6 +163,25 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 341335303, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 766945016604557364, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1338097493
+      objectReference: {fileID: 0}
+    - target: {fileID: 766945016604557364, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 766945016604557364, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219760679990789230, guid: b41fecefd8a373541924abbf62e36cb8,
         type: 3}
       propertyPath: m_Color.g

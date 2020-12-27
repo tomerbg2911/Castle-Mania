@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragonAiming : MonoBehaviour
 {
     public bool isAiming = true;
-    public int minAmountOfMana = 3;
+    public int minAmountOfMana = 1;
 
     // keyboard keys
     private KeyCode shoot;
@@ -40,7 +40,6 @@ public class DragonAiming : MonoBehaviour
 
     void StartAimingSequence()
     {
-        GetComponentInParent<Tower>().manaAmount -= minAmountOfMana;  // reduce tower's mana Amount
         isAiming = true;
     }
 

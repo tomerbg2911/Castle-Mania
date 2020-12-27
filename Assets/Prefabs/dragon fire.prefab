@@ -196,6 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireTarget: {x: 0, y: 0, z: 0}
   speed: 50
+  explosionPrefab: {fileID: 1033951362845732577, guid: ee0558a6d08b7214fbacd5e620562db3,
+    type: 3}
 --- !u!61 &4287233346219201321
 BoxCollider2D:
   m_ObjectHideFlags: 0

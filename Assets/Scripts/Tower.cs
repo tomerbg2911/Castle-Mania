@@ -190,21 +190,23 @@ public class Tower : MonoBehaviour
     // Tower event handlers
     public void onDragonFireHitGate()
     {
-        if (isGateOpen)
+        if (isGateOpen)                                                                         //here we hit the other tower, need to get his health and update it, the other tower health slider
         {
-            print(String.Format("tower {0} hit", playerNumber));
+            this.healthPoints -= 10;
+            print(String.Format("tower {0} got hit", playerNumber));
+            Debug.Log("current health:" + this.healthPoints);
 
             // show explosion animation
-            GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform) as GameObject;
-            Destroy(explosion, 3);
+           // GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform) as GameObject;
+            //Destroy(explosion, 3);
         }
         else
         {
             print(String.Format("tower {0} miss", playerNumber));
 
             // show explosion animation
-            GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform.position, Quaternion.identity) as GameObject;
-            Destroy(explosion, 3);
+           // GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform.position, Quaternion.identity) as GameObject;
+           // Destroy(explosion, 3);
         }
     }
 

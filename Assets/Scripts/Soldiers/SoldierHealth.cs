@@ -62,7 +62,7 @@ public class SoldierHealth : MonoBehaviour
             if(currentHealth > 0)
             {
                 currentHealth += amount;
-                if(currentHealth < 0)
+                if(currentHealth <= 0)
                 {
 
                     transform.Rotate(transform.up, 180); // flip soldier horizontally
@@ -121,7 +121,7 @@ public class SoldierHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Soldier")
+        if (collision.gameObject.CompareTag("Soldier"))
         {
             Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
         }

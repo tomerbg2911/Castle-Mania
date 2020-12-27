@@ -8,12 +8,14 @@ public class DragonShooting : MonoBehaviour
     public GameObject dragonFirePrefab;
     public bool isShooting;
     public Vector3 target;
+    private Tower parentTowerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         isShooting = false;
         animator = GetComponent<Animator>();
+        parentTowerScript = GetComponentInParent<Tower>();
     }
 
     // Update is called once per frame
@@ -28,11 +30,22 @@ public class DragonShooting : MonoBehaviour
         animator.SetBool("IsShooting", true);
     }
 
-    public void spawnFire()
+    public IEnumerator spawnFire()
     {
-        GameObject newFire = Instantiate(dragonFirePrefab, transform.position, transform.rotation) as GameObject;
-        newFire.GetComponent<DragonFire>().fireTarget = target;
+
         GetComponent<DragonAiming>().destroyAllTargets();
+        for (int i = 1; i <= parentTowerScript.manaAmount; i++)
+        {
+            if (i == 4) //shooting max 3 balls of fire 
+            {
+                break;
+            }
+            GameObject newFire = Instantiate(dragonFirePrefab, transform.position, transform.rotation) as GameObject;
+            newFire.GetComponent<DragonFire>().fireTarget = target;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        parentTowerScript.manaAmount = 0;  // reduce tower's mana Amount
     }
 
     public void OnAnimationFinished()

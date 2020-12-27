@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        target = collision.gameObject;
+        target = collision.collider.gameObject;
         if (target.CompareTag("Soldier"))
         {
             Debug.Log("Ive hit someone!");
@@ -28,5 +28,10 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject, 0.1f);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collision2D collision)
+    {
+        target = collision.collider.gameObject;
     }
 }
