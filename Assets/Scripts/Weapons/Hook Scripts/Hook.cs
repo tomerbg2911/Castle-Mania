@@ -43,7 +43,7 @@ public class Hook : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PickUp" && hookState == HookState.firedTowardsTarget)
+        if (collision.gameObject.tag == "PickUp" && hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack)
         {
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
             hookedCollectableGameObject = collision.gameObject;
