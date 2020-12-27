@@ -1417,10 +1417,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2560, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2172,6 +2172,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DamageBar2
       objectReference: {fileID: 0}
+    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7724360218898272282, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2276,21 +2291,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
-        type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
-        type: 3}
-      propertyPath: m_MaxValue
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
-        type: 3}
-      propertyPath: m_Value
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7724360220591866718, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
@@ -6011,6 +6011,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DamageBar1
       objectReference: {fileID: 0}
+    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7724360218898272282, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6115,16 +6125,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
-        type: 3}
-      propertyPath: m_MaxValue
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7724360218898272277, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
-        type: 3}
-      propertyPath: m_Value
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7724360220591866718, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
@@ -6871,8 +6871,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Hook
       objectReference: {fileID: 0}
-    - target: {fileID: 4443295582331898987, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
+    - target: {fileID: 411202752, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
       propertyPath: m_TagString
       value: Hook
       objectReference: {fileID: 0}
@@ -6881,7 +6880,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Hook
       objectReference: {fileID: 0}
-    - target: {fileID: 411202752, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
+    - target: {fileID: 4443295582331898987, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
       propertyPath: m_TagString
       value: Hook
       objectReference: {fileID: 0}
@@ -9317,42 +9317,22 @@ PrefabInstance:
       propertyPath: FlareTransform
       value: 
       objectReference: {fileID: 1371641751}
-    - target: {fileID: 3831087161710286936, guid: 23601f65f1de0b743a9e2a8af33467da,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 656604104871843388, guid: 23601f65f1de0b743a9e2a8af33467da,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601835015748742522, guid: 23601f65f1de0b743a9e2a8af33467da,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6763665815899731037, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
       propertyPath: manaAmount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1044321688651683504, guid: 23601f65f1de0b743a9e2a8af33467da,
+    - target: {fileID: 3831087161710286936, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
-      propertyPath: m_TagString
-      value: Hook
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1044321688159001796, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
       propertyPath: m_TagString
       value: Hook
       objectReference: {fileID: 0}
-    - target: {fileID: 1044321688498203728, guid: 23601f65f1de0b743a9e2a8af33467da,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hook
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735714728216028271, guid: 23601f65f1de0b743a9e2a8af33467da,
+    - target: {fileID: 1044321688651683504, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
       propertyPath: m_TagString
       value: Hook
@@ -9366,6 +9346,26 @@ PrefabInstance:
         type: 3}
       propertyPath: minAmountOfMana
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601835015748742522, guid: 23601f65f1de0b743a9e2a8af33467da,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044321688498203728, guid: 23601f65f1de0b743a9e2a8af33467da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735714728216028271, guid: 23601f65f1de0b743a9e2a8af33467da,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 656604104871843388, guid: 23601f65f1de0b743a9e2a8af33467da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23601f65f1de0b743a9e2a8af33467da, type: 3}
