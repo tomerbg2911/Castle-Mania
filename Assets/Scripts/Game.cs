@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
         //CollectablesSpawn();
     }
 
-    void StartGame()
+    private void Awake()
     {
         Time.timeScale = 1;
     }

@@ -30,8 +30,5 @@ public class Bullet : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
-    {
-        target = collision.collider.gameObject;
-    }
+   
 }

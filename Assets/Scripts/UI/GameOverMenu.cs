@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     //public PauseMenu pauseMenu; // for the 'GameIsPaused' bool
-    public bool playerIsDead = true;
+    public bool playerIsDead = false;
     public GameObject GameOverMenuUI;
     private float fixedDeltaTime;
 

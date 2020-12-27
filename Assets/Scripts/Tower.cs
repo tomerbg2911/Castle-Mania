@@ -10,6 +10,10 @@ public class Tower : MonoBehaviour
     public int healthPoints = 100;
     public int manaAmount = 0;
 
+    //UI related vars
+    public HealthBar healthbar;
+    public GameOverMenu gameover;
+
     // gate related vars
     private GameObject gateOpen;
     private GameObject gateClosed;
@@ -49,6 +53,10 @@ public class Tower : MonoBehaviour
         gateClosed = gateParent.transform.Find("gate_closed").gameObject;
         setGateOpen(false);
 
+        //init UI elements
+        healthbar = GameObject.Find(string.Format("HealthBar{0}", playerNumber)).GetComponent<HealthBar>();
+        healthbar.SetHealth(this.healthPoints);
+        gameover = GameObject.Find("Canvas").GetComponent<GameOverMenu>();
 
         // spawn first soldiers
         for (int i = 0; i < maxNumOfSoldiers; i++)
@@ -193,8 +201,14 @@ public class Tower : MonoBehaviour
         if (isGateOpen)                                                                         //here we hit the other tower, need to get his health and update it, the other tower health slider
         {
             this.healthPoints -= 10;
+            healthbar.SetHealth(this.healthPoints);
             print(String.Format("tower {0} got hit", playerNumber));
             Debug.Log("current health:" + this.healthPoints);
+
+            if (this.healthPoints <= 0)
+            {
+                gameover.playerIsDead = true;
+            }
 
             // show explosion animation
            // GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform) as GameObject;
