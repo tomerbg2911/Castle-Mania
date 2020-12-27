@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 263993492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collectable Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,9 +69,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411202753}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rope Anchor
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1153,9 +1153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4443295581884990976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hook parent
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,6 +1471,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 2
   healthPoints: 100
+  manaAmount: 0
+  healthbar: {fileID: 0}
+  gameover: {fileID: 0}
   explosionPrefab: {fileID: 1033951362845732577, guid: ee0558a6d08b7214fbacd5e620562db3,
     type: 3}
   isGateOpen: 0
@@ -1503,9 +1506,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4443295582301945056}
   - component: {fileID: 4443295582301945057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hook_base
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1589,9 +1592,9 @@ GameObject:
   - component: {fileID: 2110590361}
   - component: {fileID: 2110590362}
   - component: {fileID: 8344483668424391108}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hook
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

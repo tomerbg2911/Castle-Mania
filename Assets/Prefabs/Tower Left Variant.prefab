@@ -49,31 +49,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -1.83
-      objectReference: {fileID: 0}
     - target: {fileID: 4443295582265891028, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Name
       value: Tower Left Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 6083999783960873840, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 266f74a0dace66645bc909eed5dac98c, type: 2}
     - target: {fileID: 4443295582265891029, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -134,12 +114,6 @@ PrefabInstance:
       propertyPath: FlareTransform
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 5974558162026142118, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: finalTargetPrefab
-      value: 
-      objectReference: {fileID: 4575985279284703614, guid: 3b2cbd64e4304bd48a4f21c3aacd402c,
-        type: 3}
     - target: {fileID: 4443295582406105671, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Sprite
@@ -149,6 +123,21 @@ PrefabInstance:
     - target: {fileID: 554447161, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.83
       objectReference: {fileID: 0}
     - target: {fileID: 4443295582571695964, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
@@ -213,6 +202,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 022473e4f5e6b2b4492b5a4a69be13e0,
         type: 3}
+    - target: {fileID: 5974558162026142118, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: finalTargetPrefab
+      value: 
+      objectReference: {fileID: 4575985279284703614, guid: 3b2cbd64e4304bd48a4f21c3aacd402c,
+        type: 3}
+    - target: {fileID: 6083999783960873840, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 266f74a0dace66645bc909eed5dac98c, type: 2}
     - target: {fileID: 5273510328547725152, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Sprite

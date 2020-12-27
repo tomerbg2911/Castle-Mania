@@ -121,10 +121,9 @@ public class SoldierHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Soldier"))
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
-        }
-
+        //if (collision.gameObject.CompareTag("Soldier"))
+        //{
+        //    Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
+        //}
     }
 }

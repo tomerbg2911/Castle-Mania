@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 376421161}
   - component: {fileID: 376421163}
   - component: {fileID: 376421162}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 9161298085932315094}
   - component: {fileID: 4287233346219201321}
   - component: {fileID: 6951035852280440236}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: dragon fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
