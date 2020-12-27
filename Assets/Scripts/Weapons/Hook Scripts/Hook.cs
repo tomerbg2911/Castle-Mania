@@ -14,8 +14,8 @@ public class Hook : MonoBehaviour
 
     public HookState hookState; // current hook state
     private Vector3 hookPositionBeforeShooting; // the hook's position before being fired
-    private GameObject hookedCollectableGameObject = null;
-    
+    private ManaCollectable hookedManaCollectable;
+
     // Anchors
     public Transform collectableAnchor;
 
@@ -43,21 +43,18 @@ public class Hook : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PickUp" && hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack)
+        if (collision.gameObject.tag == "PickUp" && !hookedManaCollectable && (hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack))
         {
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            hookedCollectableGameObject = collision.gameObject;
-            ManaCollectable manaCollectable = hookedCollectableGameObject.GetComponent<ManaCollectable>();
+            hookedManaCollectable = collision.gameObject.GetComponent<ManaCollectable>();
 
             // TODO: rotate the pickup relatively to the hook
             //Vector3 rotation = new Vector3(0,0,0);
             //manaCollectable.transform.Rotate(rotation,Space.Self);
 
-            manaCollectable.fallingSpeed = 0;
-            manaCollectable.hookAttached = collectableAnchor;
-
+            hookedManaCollectable.fallingSpeed = 0;
+            hookedManaCollectable.hookAttached = collectableAnchor;
             hookState = HookState.firedGoingBack;
-        
         }
     }
 
@@ -92,10 +89,10 @@ public class Hook : MonoBehaviour
                 tempPosition = hookPositionBeforeShooting;
                 hookState = HookState.rotating;
                 GetComponent<Aiming>().enabled = true; // enable aiming
-                if(hookedCollectableGameObject != null)
+                if(hookedManaCollectable != null)
                 {
-                    GetComponentInParent<Tower>().OnCollectableCatch(hookedCollectableGameObject);
-                    hookedCollectableGameObject = null;
+                    GetComponentInParent<Tower>().OnCollectableCatch(hookedManaCollectable.gameObject);
+                    hookedManaCollectable = null;
                 }
             }
         }

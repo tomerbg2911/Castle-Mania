@@ -30,5 +30,20 @@ public class Bullet : MonoBehaviour
 
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Floor")
+        {
+            Destroy(gameObject, 0.1f);
+        }
+
+        if (collision.CompareTag("PickUp"))
+        {
+            collision.gameObject.GetComponent<ManaCollectable>().fallingSpeed *= 5;
+        }
+
+    }
+
+
+
 }

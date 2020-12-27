@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6178304584534016414}
   - component: {fileID: 6178304584534016401}
   - component: {fileID: 6178304584534016400}
-  - component: {fileID: 863370254869057188}
   - component: {fileID: 1579390414}
+  - component: {fileID: 2579672434268856079}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6178304584534016403}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: -3.7622828, y: -1.2129525, z: 16.104101}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 47b27ad2219b10c449d045c8c228de1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4835d88c93c2884a8b42df7fe804614, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,32 +103,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &863370254869057188
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178304584534016403}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.023024067, y: 0.028535247}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5096899, y: 0.48062012}
-    oldSize: {x: 1.7066667, y: 1.7066667}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.51606655, y: 1.3715522}
-  m_EdgeRadius: 0
 --- !u!114 &1579390414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +115,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f8d272958c0284e89152a9430676d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &2579672434268856079
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6178304584534016403}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1, y: -0.09}
+  serializedVersion: 2
+  m_Radius: 1.71

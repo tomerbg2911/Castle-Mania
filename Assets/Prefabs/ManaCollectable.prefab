@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7901481604792754680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 7901481604854180700}
   - component: {fileID: 7901481604854180697}
   - component: {fileID: 7901481604854180701}
-  m_Layer: 0
+  - component: {fileID: 4178688157474878353}
+  m_Layer: 11
   m_Name: ManaCollectable
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -102,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9f0552c595d0aa64f813efe922b69957, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a25d6a5ae26af940b91630d051d7189, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e4cfc6c9abc8b49ae456d120b72344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfMana: 1
+  amountOfMana: 1
   fallingSpeed: 0
   isCatched: 0
   hookAttached: {fileID: 0}
@@ -167,3 +168,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &4178688157474878353
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901481604854180696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 662c7366c48b40c4a8b9b5280f734d81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

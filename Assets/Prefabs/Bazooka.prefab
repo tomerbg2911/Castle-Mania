@@ -120,8 +120,9 @@ MonoBehaviour:
   ChargingClip: {fileID: 0}
   fireClip: {fileID: 0}
   MinLaunchForce: 15
-  MaxLaunchForce: 30
+  MaxLaunchForce: 50
   MaxChargeTime: 0.75
+  delayBetweenShooting: 1
 --- !u!1 &532151528345461510
 GameObject:
   m_ObjectHideFlags: 0
