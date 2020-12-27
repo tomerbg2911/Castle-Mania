@@ -3233,7 +3233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &790221045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3398,7 +3398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &813212501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3694,8 +3694,8 @@ RectTransform:
   m_Father: {fileID: 1204764453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6388,7 +6388,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9317,6 +9317,11 @@ PrefabInstance:
       propertyPath: FlareTransform
       value: 
       objectReference: {fileID: 1371641751}
+    - target: {fileID: 3461855074891695003, guid: 23601f65f1de0b743a9e2a8af33467da,
+        type: 3}
+      propertyPath: delayBetweenShooting
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6763665815899731037, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
       propertyPath: manaAmount
