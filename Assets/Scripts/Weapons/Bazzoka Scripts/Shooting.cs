@@ -33,6 +33,7 @@ public class Shooting : MonoBehaviour
         FireButton = GetComponentInParent<Tower>().shoot;
         ChargeSpeed = (MaxLaunchForce - MinLaunchForce) / MaxChargeTime;
         AimSlider.gameObject.SetActive(false);
+        Debug.Log("parent of the bazooka is: " + transform.parent.name);
         // Debug.Log("FireButton" + FireButton);
     }
 
@@ -80,6 +81,7 @@ public class Shooting : MonoBehaviour
     {
         Fired = true;
         Rigidbody2D bulletInstance = Instantiate(bullet, FireTransform.position, FireTransform.rotation) as Rigidbody2D;
+        bulletInstance.gameObject.GetComponent<Bullet>().fatherCannon = transform.parent.name;
         bulletInstance.velocity = currentLaunchForce * FireTransform.up;
 
         //ShootingAudio.clip = fireClip;

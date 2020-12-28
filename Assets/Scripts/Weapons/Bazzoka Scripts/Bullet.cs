@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     private  GameObject target;
+    public string fatherCannon;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +24,16 @@ public class Bullet : MonoBehaviour
         target = collision.collider.gameObject;
         if (target.CompareTag("Soldier"))
         {
-            Debug.Log("Ive hit someone!");
-            target.GetComponent<SoldierHealth>().changeHealth(-35);
-            Destroy(gameObject, 0.1f);
+            if (string.Equals(collision.collider.transform.parent.name, fatherCannon)) //if the bullet and the soldier we hit are from the same tower-ignore
+            {
+                //Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
+                Destroy(gameObject);
+            }
+            else
+            { 
+                target.GetComponent<SoldierHealth>().changeHealth(-35);
+                Destroy(gameObject, 0.1f);
+            }
         }
 
     }
