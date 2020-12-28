@@ -122,7 +122,7 @@ MonoBehaviour:
   MinLaunchForce: 15
   MaxLaunchForce: 50
   MaxChargeTime: 0.75
-  delayBetweenShooting: 1
+  delayBetweenShooting: 0.2
 --- !u!1 &532151528345461510
 GameObject:
   m_ObjectHideFlags: 0

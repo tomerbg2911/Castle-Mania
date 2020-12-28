@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.CompareTag("PickUp"))
         {
-            collision.gameObject.GetComponent<ManaCollectable>().fallingSpeed *= 5;
+            collision.gameObject.GetComponent<Collectable>().fallingSpeed *= 5;
         }
 
     }

@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManaCollectable : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
-
-    public int amountOfMana = 1;
     public float fallingSpeed;
     public bool isCatched;
-    public Transform hookAttached;
+    public Transform hookAnchorAttached;
     public Transform anchor;
     private Vector3 distanceFromAnchor;
 
     // Start is called before the first frame update
     void Start()
     {
-        hookAttached = null;
+        hookAnchorAttached = null;
         isCatched = false;
         distanceFromAnchor = transform.position - anchor.position;
     }
@@ -28,22 +26,21 @@ public class ManaCollectable : MonoBehaviour
 
     void move()
     {
-        if (hookAttached == null)
+        if (hookAnchorAttached == null)
         {
             transform.position -= transform.up * fallingSpeed * Time.deltaTime;
         }
         else
         {
-            transform.position = hookAttached.position + distanceFromAnchor;
+            transform.position = hookAnchorAttached.position + distanceFromAnchor;
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Floor")
+        if (collision.gameObject.name == "Floor")
         {
             Destroy(gameObject);
         }
     }
-
 }

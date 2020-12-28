@@ -14,7 +14,9 @@ public class Hook : MonoBehaviour
 
     public HookState hookState; // current hook state
     private Vector3 hookPositionBeforeShooting; // the hook's position before being fired
-    private ManaCollectable hookedManaCollectable;
+    private Vector3 nextHookPosition;
+    private Collectable HookedCollectable;
+    private bool isHoldingShield = false;
 
     // Anchors
     public Transform collectableAnchor;
@@ -43,17 +45,17 @@ public class Hook : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PickUp" && !hookedManaCollectable && (hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack))
+        if (collision.gameObject.tag == "PickUp" && !HookedCollectable && (hookState == HookState.firedTowardsTarget || hookState == HookState.firedGoingBack))
         {
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            hookedManaCollectable = collision.gameObject.GetComponent<ManaCollectable>();
+            HookedCollectable = collision.gameObject.GetComponent<Collectable>();
 
             // TODO: rotate the pickup relatively to the hook
             //Vector3 rotation = new Vector3(0,0,0);
             //manaCollectable.transform.Rotate(rotation,Space.Self);
 
-            hookedManaCollectable.fallingSpeed = 0;
-            hookedManaCollectable.hookAttached = collectableAnchor;
+            HookedCollectable.fallingSpeed = 0;
+            HookedCollectable.hookAnchorAttached = collectableAnchor;
             hookState = HookState.firedGoingBack;
         }
     }
@@ -67,12 +69,12 @@ public class Hook : MonoBehaviour
 
     void HookShooting()
     {
-        Vector3 tempPosition = transform.position;
-        currentFrameDistance = Vector3.Distance(tempPosition, hookPositionBeforeShooting);
+        nextHookPosition = transform.position;
+        currentFrameDistance = Vector3.Distance(nextHookPosition, hookPositionBeforeShooting);
 
         if (hookState == HookState.firedTowardsTarget)
-        { 
-            tempPosition -= transform.up * shootingSpeed * Time.deltaTime;
+        {
+            nextHookPosition -= transform.up * shootingSpeed * Time.deltaTime;
 
             if (currentFrameDistance > maxShootingDistance)
             {
@@ -81,23 +83,16 @@ public class Hook : MonoBehaviour
         }
 
         else if (hookState == HookState.firedGoingBack)
-        { 
-            tempPosition += transform.up * shootingSpeed * Time.deltaTime;
+        {
+            nextHookPosition += transform.up * shootingSpeed * Time.deltaTime;
             if (currentFrameDistance < 5f && currentFrameDistance > lastFrameDistance)
             {
                 // hook came back to it's starting position
-                tempPosition = hookPositionBeforeShooting;
-                hookState = HookState.rotating;
-                GetComponent<Aiming>().enabled = true; // enable aiming
-                if(hookedManaCollectable != null)
-                {
-                    GetComponentInParent<Tower>().OnCollectableCatch(hookedManaCollectable.gameObject);
-                    hookedManaCollectable = null;
-                }
+                OnHookCameBack();
             }
         }
 
-        transform.position = tempPosition;
+        transform.position = nextHookPosition;
         lastFrameDistance = currentFrameDistance;
     }
 
@@ -112,5 +107,39 @@ public class Hook : MonoBehaviour
         GetComponent<Aiming>().enabled = false; // disable aiming while the hook is being used
         hookPositionBeforeShooting = transform.position;
         hookState = HookState.firedTowardsTarget;
+    }
+
+    public void OnHookCameBack()
+    {
+        nextHookPosition = hookPositionBeforeShooting;
+        hookState = HookState.rotating;
+        GetComponent<Aiming>().enabled = true; // enable aiming
+        if (HookedCollectable)
+        {
+            if (HookedCollectable.gameObject.GetComponent<ManaCollectable>() != null) // collectable is mana type
+            {
+                GetComponentInParent<Tower>().OnCollectableCatch(HookedCollectable.gameObject);
+                HookedCollectable = null;
+            }
+            else // collectable is shield type
+            {
+                if (isHoldingShield)
+                {
+                    // this shield collectable already came back to base
+                    Destroy(HookedCollectable.gameObject);
+                    HookedCollectable = null;
+                    isHoldingShield = false;
+                }
+                else
+                {
+                    isHoldingShield = true;
+                    HookedCollectable.gameObject.GetComponent<ShieldCollectable>().switchToShield();
+                }
+            }
+        }
+        else // no collectable hooked
+        {
+            isHoldingShield = false;
+        }
     }
 }

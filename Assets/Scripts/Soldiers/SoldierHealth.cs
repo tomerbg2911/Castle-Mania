@@ -119,11 +119,21 @@ public class SoldierHealth : MonoBehaviour
         transform.GetChild(childNum).gameObject.SetActive(false);     
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.CompareTag("Soldier"))
-        //{
-        //    Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
-        //}
+        if(collision.gameObject.name.ToLower().StartsWith("shield"))
+        {
+
+            print("I GOT SHIELD!"); // TODO: Implement shield animation
+
+            Collectable shieldCollectable = collision.gameObject.GetComponentInParent<Collectable>();
+
+            // tell hook to go back
+            GameObject hookAnchorAttached = shieldCollectable.hookAnchorAttached.gameObject;
+            hookAnchorAttached.GetComponentInParent<Hook>().hookState = Hook.HookState.firedGoingBack;
+
+            // destroy shield game object
+            Destroy(shieldCollectable.gameObject, 0.1f);
+        }
     }
 }

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 7901481604854180703}
   - component: {fileID: 7901481604854180702}
   - component: {fileID: 7901481604854180700}
+  - component: {fileID: 8949767527362654556}
   - component: {fileID: 7901481604854180697}
   - component: {fileID: 7901481604854180701}
   - component: {fileID: 4178688157474878353}
@@ -127,6 +128,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountOfMana: 1
+--- !u!114 &8949767527362654556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901481604854180696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96bd19dc9bcf6344796d694932058087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   fallingSpeed: 0
   isCatched: 0
   hookAttached: {fileID: 0}
