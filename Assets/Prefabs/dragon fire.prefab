@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 376421161}
   - component: {fileID: 376421163}
   - component: {fileID: 376421162}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,9 +110,8 @@ GameObject:
   - component: {fileID: 6037635420486723905}
   - component: {fileID: 8953804826431312793}
   - component: {fileID: 9161298085932315094}
-  - component: {fileID: 4287233346219201321}
   - component: {fileID: 6951035852280440236}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: dragon fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,34 +195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireTarget: {x: 0, y: 0, z: 0}
   speed: 50
+  explosionDelay: 0.1
   explosionPrefab: {fileID: 1033951362845732577, guid: ee0558a6d08b7214fbacd5e620562db3,
     type: 3}
---- !u!61 &4287233346219201321
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242604882239863391}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 31.79, y: 31.640001}
-    newSize: {x: 31.79, y: 31.640001}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 248.1, y: 136.6}
-  m_EdgeRadius: 0
 --- !u!60 &6951035852280440236
 PolygonCollider2D:
   m_ObjectHideFlags: 0

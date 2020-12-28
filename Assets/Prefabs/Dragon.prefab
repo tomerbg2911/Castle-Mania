@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAiming: 1
-  minAmountOfMana: 3
+  minAmountOfMana: 1
   targetPrefab: {fileID: 4434582827784435035, guid: 341a0f01548f44541aaabb37e99e2887,
     type: 3}
   finalTargetPrefab: {fileID: 4575985279284703614, guid: 3b2cbd64e4304bd48a4f21c3aacd402c,

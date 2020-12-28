@@ -71,7 +71,7 @@ public class SoldierHealth : MonoBehaviour
                         Children[i].enabled = false;
                     }
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                    nakedSoldier = Instantiate(nakedSoldier, transform.position, transform.rotation);
+                    nakedSoldier = Instantiate(nakedSoldier, transform.position + (1.2f * Vector3.up), transform.rotation);
                     nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
                     dead = true;
                 }
@@ -121,10 +121,9 @@ public class SoldierHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Soldier"))
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
-        }
-
+        //if (collision.gameObject.CompareTag("Soldier"))
+        //{
+        //    Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
+        //}
     }
 }

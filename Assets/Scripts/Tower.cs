@@ -198,7 +198,7 @@ public class Tower : MonoBehaviour
     // Tower event handlers
     public void onDragonFireHitGate()
     {
-        if (isGateOpen)                                                                         //here we hit the other tower, need to get his health and update it, the other tower health slider
+        if (isGateOpen)   //here we hit the other tower, need to get his health and update it, the other tower health slider
         {
             this.healthPoints -= 10;
             healthbar.SetHealth(this.healthPoints);

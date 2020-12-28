@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 532151528083553376}
   - component: {fileID: 8890798496392550225}
   - component: {fileID: 4500459232479959895}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bazooka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,8 +120,9 @@ MonoBehaviour:
   ChargingClip: {fileID: 0}
   fireClip: {fileID: 0}
   MinLaunchForce: 15
-  MaxLaunchForce: 30
+  MaxLaunchForce: 50
   MaxChargeTime: 0.75
+  delayBetweenShooting: 1
 --- !u!1 &532151528345461510
 GameObject:
   m_ObjectHideFlags: 0
