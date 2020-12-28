@@ -100,7 +100,7 @@ public class SoldierHealth : MonoBehaviour
                             }
                             else
                             {
-                                anim.SetTrigger("hitHShield");
+                                anim.SetTrigger("hitShield");
                             }
                             break;
                     }
