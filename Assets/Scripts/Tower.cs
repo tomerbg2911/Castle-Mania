@@ -40,6 +40,11 @@ public class Tower : MonoBehaviour
     public GameObject[] weapons;
     private int activatedWeaponIdx;
 
+    // weapons indicator
+    public Transform[] HookIndicators;
+    public Transform BazookaIndicator;
+    public Transform DragonIndicator;
+
 
     void Start()
     {
@@ -106,14 +111,20 @@ public class Tower : MonoBehaviour
             switch (currentWeapon.name.ToLower())
             {
                 case "hook":
+                    foreach(Transform hookIndicator in HookIndicators)
+                    {
+                        hookIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
+                    }
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<HookShooting>().enabled = enableThisWeapon;
                     break;
                 case "bazooka":
+                    BazookaIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<Shooting>().enabled = enableThisWeapon;
                     break;
                 case "dragon":
+                    DragonIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<DragonAiming>().enabled = enableThisWeapon;
                     break;
             }
