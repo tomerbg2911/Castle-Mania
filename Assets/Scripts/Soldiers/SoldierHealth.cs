@@ -71,7 +71,7 @@ public class SoldierHealth : MonoBehaviour
                         Children[i].enabled = false;
                     }
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                    nakedSoldier = Instantiate(nakedSoldier, transform.position, transform.rotation);
+                    nakedSoldier = Instantiate(nakedSoldier, transform.position + (1.2f * Vector3.up), transform.rotation);
                     nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
                     dead = true;
                 }
