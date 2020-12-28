@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  minRotationZ: 50
+  minRotationZ: 20
   maxRotationZ: 130
   rotationAnchor: {fileID: 4443295581300444093}
 --- !u!114 &6953151631886340016

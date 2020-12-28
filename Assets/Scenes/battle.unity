@@ -1948,7 +1948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b125458f65d954cbe8dbba93536c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectableGameObject: {fileID: 7901481604854180696, guid: 578ef6b219e67794384d7c4000b8bba6,
+  manaCollectablePrefab: {fileID: 7901481604854180696, guid: 578ef6b219e67794384d7c4000b8bba6,
+    type: 3}
+  shieldCollectablePrefab: {fileID: 1204152563809274368, guid: 7c9c55c3f266e1d40a98d9ef117b3426,
     type: 3}
   spawnTimeInterval: 5
   minXPosition: -22
@@ -1956,6 +1958,7 @@ MonoBehaviour:
   minFallingSpeed: 4
   maxFallingSpeed: 8
   initYPosition: 45
+  manaCollectableProb: 0.6
 --- !u!4 &520309023
 Transform:
   m_ObjectHideFlags: 0

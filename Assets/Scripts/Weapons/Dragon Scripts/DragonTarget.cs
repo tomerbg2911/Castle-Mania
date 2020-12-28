@@ -22,7 +22,7 @@ public class DragonTarget : MonoBehaviour
     {
         if(Vector3.Distance(transform.localPosition,positionToMoveTowards) > eps)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, positionToMoveTowards, speed);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, positionToMoveTowards, speed * Time.deltaTime);
         }
         else
         {

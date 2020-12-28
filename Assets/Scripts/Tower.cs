@@ -153,7 +153,7 @@ public class Tower : MonoBehaviour
             SoldierHealth newSoldierComponent = newSoldier.GetComponent<SoldierHealth>();
             newSoldierComponent.spawnPoint = soldierInstantiatePosition;
             newSoldierComponent.soldierSlot = availableSlot;
-            newSoldierComponent.speed = 10;
+            //newSoldierComponent.speed = 10;
 
             currentNumOfSoldiers++;
             countNumOfSoldiers++;
