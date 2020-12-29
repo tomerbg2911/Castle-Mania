@@ -16,6 +16,7 @@ public class SoldierHealth : MonoBehaviour
     private Tower parentTower;
     private SpriteRenderer spriteRenderer;
     private Animator anim;
+    public Transform animationPivot;
     public GameObject nakedSoldier;
     public GameObject armoredSoldier;
     SpriteRenderer[] Children;
@@ -28,10 +29,8 @@ public class SoldierHealth : MonoBehaviour
         currentHealth = maxHealth;
         step = speed * Time.deltaTime;
         dead = false;
-        anim = this.GetComponent<Animator>();
+        anim = animationPivot.GetComponent<Animator>();
         Children = gameObject.GetComponentsInChildren<SpriteRenderer>();
-        
-
     }
 
     // Update is called once per frame
@@ -72,7 +71,7 @@ public class SoldierHealth : MonoBehaviour
                         Children[i].enabled = false;
                     }
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                    nakedSoldier = Instantiate(nakedSoldier, transform.position + (1.2f * Vector3.up), transform.rotation);
+                    nakedSoldier = Instantiate(nakedSoldier, transform.position, transform.rotation);
                     nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
                     dead = true;
                 }
@@ -175,7 +174,7 @@ public class SoldierHealth : MonoBehaviour
                                                                          
             if (!(gameObject.name.ToLower().StartsWith("armor")))               // replacing reg-soldier with armed soldier
             { 
-                armoredSoldier =  Instantiate(armoredSoldier, transform.position + (1.2f * Vector3.up), transform.rotation);
+                armoredSoldier =  Instantiate(armoredSoldier, transform.position, transform.rotation);
                 armoredSoldier.transform.parent = this.transform.parent;
                 armoredSoldier.GetComponent<SoldierHealth>().spawnPoint = this.spawnPoint;
                 armoredSoldier.GetComponent<SoldierHealth>().soldierSlot = this.soldierSlot;
@@ -195,14 +194,14 @@ public class SoldierHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void DisableChildOnAnimation(int childNum)
-    {
-        transform.GetChild(childNum).gameObject.SetActive(false);     
-    }
+    //private void DisableChildOnAnimation(int childNum)
+    //{
+    //    animationPivot.GetChild(childNum).gameObject.SetActive(false);     
+    //}
 
-    private void EnableChildOnAnimation(int childNum)
-    {
-        transform.GetChild(childNum).gameObject.SetActive(true);
-    }
+    //private void EnableChildOnAnimation(int childNum)
+    //{
+    //    animationPivot.GetChild(childNum).gameObject.SetActive(true);
+    //}
 
 }

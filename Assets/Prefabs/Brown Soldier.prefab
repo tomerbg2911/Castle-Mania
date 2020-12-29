@@ -48,6 +48,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1606889459429002882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151374531923407197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af8725af0fd8154198020a2fe1a39fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &136643161037410991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 1083860068, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
       propertyPath: armoredSoldier
       value: 
-      objectReference: {fileID: 4341564743743295294, guid: 64446c5cf33bd524a9b86393998a76d4,
+      objectReference: {fileID: 4341564743743295294, guid: 151803dfee170f0448e24cadeba34824,
         type: 3}
     - target: {fileID: 341335303, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
