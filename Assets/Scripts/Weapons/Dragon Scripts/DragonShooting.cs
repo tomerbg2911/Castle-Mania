@@ -45,7 +45,7 @@ public class DragonShooting : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        parentTowerScript.manaAmount = 0;  // reduce tower's mana Amount
+        parentTowerScript.setManaAmount(0);
     }
 
     public void OnAnimationFinished()

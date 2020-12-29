@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 0
   isCatched: 0
-  hookAttached: {fileID: 0}
+  hookAnchorAttached: {fileID: 0}
   anchor: {fileID: 7901481604792754680}
 --- !u!58 &7901481604854180697
 CircleCollider2D:

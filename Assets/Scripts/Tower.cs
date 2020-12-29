@@ -12,6 +12,7 @@ public class Tower : MonoBehaviour
 
     //UI related vars
     public HealthBar healthbar;
+    public ManaBar manabar;
     public GameOverMenu gameover;
 
     // gate related vars
@@ -40,6 +41,11 @@ public class Tower : MonoBehaviour
     public GameObject[] weapons;
     private int activatedWeaponIdx;
 
+    // weapons indicator
+    public Transform[] HookIndicators;
+    public Transform BazookaIndicator;
+    public Transform DragonIndicator;
+
 
     void Start()
     {
@@ -56,6 +62,8 @@ public class Tower : MonoBehaviour
         //init UI elements
         healthbar = GameObject.Find(string.Format("HealthBar{0}", playerNumber)).GetComponent<HealthBar>();
         healthbar.SetHealth(this.healthPoints);
+        manabar = GameObject.Find(string.Format("ManaBar{0}", playerNumber)).GetComponent<ManaBar>();
+        manabar.SetMana(0);
         gameover = GameObject.Find("Canvas").GetComponent<GameOverMenu>();
 
         // spawn first soldiers
@@ -106,14 +114,20 @@ public class Tower : MonoBehaviour
             switch (currentWeapon.name.ToLower())
             {
                 case "hook":
+                    foreach(Transform hookIndicator in HookIndicators)
+                    {
+                        hookIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
+                    }
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<HookShooting>().enabled = enableThisWeapon;
                     break;
                 case "bazooka":
+                    BazookaIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<Shooting>().enabled = enableThisWeapon;
                     break;
                 case "dragon":
+                    DragonIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<DragonAiming>().enabled = enableThisWeapon;
                     break;
             }
@@ -246,10 +260,16 @@ public class Tower : MonoBehaviour
         ManaCollectable manaCollectable;
         if ((manaCollectable = collectableGameObject.GetComponent<ManaCollectable>()) != null)
         {
-            manaAmount += manaCollectable.amountOfMana;
+            setManaAmount(manaAmount + manaCollectable.amountOfMana);
         }
 
         Destroy(collectableGameObject);
+    }
+
+    public void setManaAmount(int amount)
+    {
+        manaAmount = amount;
+        manabar.SetMana(amount);
     }
 
 }
