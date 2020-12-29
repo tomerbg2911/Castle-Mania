@@ -70,7 +70,6 @@ public class SoldierHealth : MonoBehaviour
                     for(int i =0; i <Children.Length; i++)
                     {
                         Children[i].enabled = false;
-                        Debug.Log("Child :" + i + "is :" + Children[i].enabled);
                     }
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     nakedSoldier = Instantiate(nakedSoldier, transform.position + (1.2f * Vector3.up), transform.rotation);
