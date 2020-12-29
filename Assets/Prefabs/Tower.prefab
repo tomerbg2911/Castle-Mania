@@ -1924,10 +1924,8 @@ MonoBehaviour:
   healthbar: {fileID: 0}
   manabar: {fileID: 0}
   gameover: {fileID: 0}
-  explosionPrefab: {fileID: 1033951362845732577, guid: ee0558a6d08b7214fbacd5e620562db3,
-    type: 3}
   isGateOpen: 0
-  delayBeforeClosingTheGate: 2
+  gateIsOpenDelay: 8
   delayBeforeInstantiating: 0.5
   soldierPrefab: {fileID: 4069513671300801522, guid: b41fecefd8a373541924abbf62e36cb8,
     type: 3}
