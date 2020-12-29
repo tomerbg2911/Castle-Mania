@@ -135,6 +135,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
         type: 3}
+    - target: {fileID: 1083860068, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083860068, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
+      propertyPath: armoredSoldier
+      value: 
+      objectReference: {fileID: 4341564743743295294, guid: 64446c5cf33bd524a9b86393998a76d4,
+        type: 3}
     - target: {fileID: 341335303, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5

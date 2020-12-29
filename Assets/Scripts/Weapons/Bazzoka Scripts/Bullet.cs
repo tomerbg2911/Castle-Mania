@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
             }
             else
             { 
-                target.GetComponent<SoldierHealth>().changeHealth(-35);
+                target.GetComponent<SoldierHealth>().changeHealth(-1);
                 Destroy(gameObject, 0.1f);
             }
         }

@@ -2195,17 +2195,22 @@ PrefabInstance:
     - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9568628
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.9568628
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.9568628
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724360218916436473, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
@@ -4642,6 +4647,7 @@ MonoBehaviour:
   speed: 5
   step: 0
   nakedSoldier: {fileID: 0}
+  armoredSoldier: {fileID: 0}
 --- !u!61 &1062573217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5875,17 +5881,22 @@ PrefabInstance:
     - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9811321
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.9811321
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.9811321
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724360220591866713, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724360218916436473, guid: dc8b4f80ebcbcd54a835aaa0b69f1acc,
         type: 3}
@@ -6503,6 +6514,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4443295582265891028, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Right
+      objectReference: {fileID: 0}
     - target: {fileID: 2093279478501905216, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Sprite
@@ -6524,11 +6540,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443295582265891028, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Right
       objectReference: {fileID: 0}
     - target: {fileID: 4443295582265891029, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}

@@ -70,12 +70,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   soldierSlot: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 3
   currentHealth: 0
   dead: 1
   speed: 10
   step: 0
   nakedSoldier: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
+    type: 3}
+  armoredSoldier: {fileID: 4341564743743295294, guid: 64446c5cf33bd524a9b86393998a76d4,
     type: 3}
 --- !u!1001 &4070379290845234294
 PrefabInstance:
