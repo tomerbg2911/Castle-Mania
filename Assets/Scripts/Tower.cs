@@ -18,10 +18,11 @@ public class Tower : MonoBehaviour
     // gate related vars
     private GameObject gateOpen;
     private GameObject gateClosed;
-    public GameObject explosionPrefab;
+    //public GameObject explosionPrefab;
     public bool isGateOpen;
-    public float delayBeforeClosingTheGate = 2f; // after a new soldier was Instantiated
+    public float gateIsOpenDelay = 10f; // time delay for the gate to be open after a soldier died
     public float delayBeforeInstantiating = 0.5f;  // before a new soldier is Instantiated
+    private float numOfDeadSoldiers;
 
     // soldiers related vars
     public GameObject soldierPrefab;
@@ -67,6 +68,7 @@ public class Tower : MonoBehaviour
         gameover = GameObject.Find("Canvas").GetComponent<GameOverMenu>();
 
         // spawn first soldiers
+        numOfDeadSoldiers = 0;
         for (int i = 0; i < maxNumOfSoldiers; i++)
         {
             StartCoroutine(instantiateSoldierEnumerator((i + 1) * delayBeforeInstantiating));
@@ -82,6 +84,8 @@ public class Tower : MonoBehaviour
         {
             SwitchToNextWeapon();
         }
+
+        setGateOpen(numOfDeadSoldiers > 0);
     }
 
     public void SwitchToNextWeapon()
@@ -172,7 +176,7 @@ public class Tower : MonoBehaviour
             currentNumOfSoldiers++;
             countNumOfSoldiers++;
 
-            Invoke("closeGate", delayBeforeClosingTheGate);
+            //Invoke("closeGate", delayBeforeClosingTheGate);
         }
     }
     public void setGateOpen(bool value)
@@ -182,14 +186,14 @@ public class Tower : MonoBehaviour
         gateClosed.SetActive(!isGateOpen);
     }
 
-    public void openGate()
-    {
-        setGateOpen(true);
-    }
-    public void closeGate()
-    {
-        setGateOpen(false);
-    }
+    //public void openGate()
+    //{
+    //    setGateOpen(true);
+    //}
+    //public void closeGate()
+    //{
+    //    setGateOpen(false);
+    //}
 
     // returns a free SoldierSlot or null if it's all taken
     SoldierSlot getAvailableSlot()
@@ -253,6 +257,21 @@ public class Tower : MonoBehaviour
         }
         Invoke("InstantiateSoldier", delayBeforeInstantiating);
     }
+
+    public void OnSoldierIsDead()
+    {
+        numOfDeadSoldiers++;
+        setGateOpen(true);
+        StartCoroutine(reduceNumOfDeadSoldiersEnumerator(gateIsOpenDelay));
+    }
+
+    IEnumerator reduceNumOfDeadSoldiersEnumerator(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        numOfDeadSoldiers--;
+        print("num of dead soldiers is " + numOfDeadSoldiers);
+    }
+
 
     // activated after the hook fame back to its base with a collectable
     public void OnCollectableCatch(GameObject collectableGameObject)

@@ -39,12 +39,11 @@ public class SoldierHealth : MonoBehaviour
     {
         if (dead == true) // if the soldier is dead return to spawnPoint
         {
-            parentTower.setGateOpen(true); // inform the tower that the soldier is dead
             nakedSoldier.transform.position = Vector3.MoveTowards(nakedSoldier.transform.position, spawnPoint.position, step);
             if (Vector3.Distance(nakedSoldier.transform.position, spawnPoint.position) < 0.1f)
             {
                 // the soldier reached spawnPoint
-                dead = false;
+                //dead = false;
                 Destroy(nakedSoldier);
                 Destroy(gameObject);
                 parentTower.OnSoldierIsBack(soldierSlot);
@@ -74,6 +73,7 @@ public class SoldierHealth : MonoBehaviour
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     nakedSoldier = Instantiate(nakedSoldier, transform.position, transform.rotation);
                     nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
+                    parentTower.OnSoldierIsDead(); // inform tower that the soldier is dead
                     dead = true;
                 }
                 else if  (amount <= 0)        // we are taking damage

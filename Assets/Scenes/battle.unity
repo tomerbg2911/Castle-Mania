@@ -6724,6 +6724,11 @@ PrefabInstance:
       propertyPath: HookIndicators.Array.data[0]
       value: 
       objectReference: {fileID: 1596493556}
+    - target: {fileID: 7929346880031909106, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: gateIsOpenDelay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4443295582331898987, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_IsActive
@@ -6740,7 +6745,7 @@ PrefabInstance:
       value: 0.93
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 45934046936627573, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
+    - {fileID: 0}
     - {fileID: 6417399661135401105, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
     - {fileID: 2716041847581756456, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
     - {fileID: 5269222907332846753, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
@@ -8979,6 +8984,5 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3dd96c82538e1be4bbbd597f23bf5452, type: 2}
-    m_RemovedComponents:
-    - {fileID: 3707830307328649690, guid: 23601f65f1de0b743a9e2a8af33467da, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23601f65f1de0b743a9e2a8af33467da, type: 3}
