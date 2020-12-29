@@ -80,6 +80,8 @@ MonoBehaviour:
     type: 3}
   armoredSoldier: {fileID: 4341564743743295294, guid: 0616f13de18bd954e94daa6ba83c51c8,
     type: 3}
+  poofPrefab: {fileID: 7527533893347877434, guid: c983885a8691ca24c962edb81a750cf9,
+    type: 3}
 --- !u!114 &3965947764104802466
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class SoldierHealth : MonoBehaviour
     public Transform animationPivot;
     public GameObject nakedSoldier;
     public GameObject armoredSoldier;
+    public GameObject poofPrefab;
     SpriteRenderer[] Children;
 
 
@@ -173,12 +174,12 @@ public class SoldierHealth : MonoBehaviour
 
                                                                          
             if (!(gameObject.name.ToLower().StartsWith("armor")))               // replacing reg-soldier with armed soldier
-            { 
-                armoredSoldier =  Instantiate(armoredSoldier, transform.position, transform.rotation);
-                armoredSoldier.transform.parent = this.transform.parent;
-                armoredSoldier.GetComponent<SoldierHealth>().spawnPoint = this.spawnPoint;
-                armoredSoldier.GetComponent<SoldierHealth>().soldierSlot = this.soldierSlot;
-                armoredSoldier.GetComponent<SoldierHealth>().Children = armoredSoldier.GetComponentsInChildren<SpriteRenderer>();
+            {
+                StartCoroutine(instantiateArmoredSoldierEnumerator(0.3f));
+                Instantiate(poofPrefab, transform.position, Quaternion.identity);
+
+                //destroy regular soldier
+                Destroy(gameObject, 0.5f);
             }
 
             Collectable shieldCollectable = collision.gameObject.GetComponentInParent<Collectable>();
@@ -190,18 +191,18 @@ public class SoldierHealth : MonoBehaviour
             // destroy shield game object
             Destroy(shieldCollectable.gameObject, 0.1f);
 
-            //destroy regular soldier
-            Destroy(gameObject);
         }
     }
-    //private void DisableChildOnAnimation(int childNum)
-    //{
-    //    animationPivot.GetChild(childNum).gameObject.SetActive(false);     
-    //}
 
-    //private void EnableChildOnAnimation(int childNum)
-    //{
-    //    animationPivot.GetChild(childNum).gameObject.SetActive(true);
-    //}
+    // instantiate a new armored soldier after waitingTime seconds
+    IEnumerator instantiateArmoredSoldierEnumerator(float waitingTime)
+    {
+        yield return new WaitForSeconds(waitingTime);
+        armoredSoldier = Instantiate(armoredSoldier, transform.position, transform.rotation);
+        armoredSoldier.transform.parent = this.transform.parent;
+        armoredSoldier.GetComponent<SoldierHealth>().spawnPoint = this.spawnPoint;
+        armoredSoldier.GetComponent<SoldierHealth>().soldierSlot = this.soldierSlot;
+        armoredSoldier.GetComponent<SoldierHealth>().Children = armoredSoldier.GetComponentsInChildren<SpriteRenderer>();
+    }
 
 }
