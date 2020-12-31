@@ -33,8 +33,6 @@ public class Shooting : MonoBehaviour
         FireButton = GetComponentInParent<Tower>().shoot;
         ChargeSpeed = (MaxLaunchForce - MinLaunchForce) / MaxChargeTime;
         AimSlider.gameObject.SetActive(false);
-        Debug.Log("parent of the bazooka is: " + transform.parent.name);
-        // Debug.Log("FireButton" + FireButton);
     }
 
     // Update is called once per frame
