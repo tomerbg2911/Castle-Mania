@@ -8,7 +8,7 @@ public class moveSpear : MonoBehaviour
 
     public Transform target;
     public float speed;
-    public float rotateSpeed=3000;
+    public float rotateSpeed=200f;
     public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class moveSpear : MonoBehaviour
     {
         Vector2 direction = (Vector2)target.position - rb.position;
         direction.Normalize();
-        float rotateAmount = Vector3.Cross(direction, transform.up).x;
+        float rotateAmount = Vector3.Cross(direction, transform.up).z;
         rb.angularVelocity = -rotateAmount * rotateSpeed;
         rb.velocity = transform.up * speed;
        
