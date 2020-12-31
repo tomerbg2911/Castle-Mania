@@ -75,6 +75,7 @@ public class SoldierHealth : MonoBehaviour
                     nakedSoldier.GetComponent<SpriteRenderer>().enabled = true;
                     parentTower.OnSoldierIsDead(); // inform tower that the soldier is dead
                     dead = true;
+                    gameObject.GetComponent<ThrowWeapon>().enabled = false;
                 }
                 else if  (amount <= 0)        // we are taking damage
                 {
@@ -203,6 +204,7 @@ public class SoldierHealth : MonoBehaviour
         armoredSoldier.GetComponent<SoldierHealth>().spawnPoint = this.spawnPoint;
         armoredSoldier.GetComponent<SoldierHealth>().soldierSlot = this.soldierSlot;
         armoredSoldier.GetComponent<SoldierHealth>().Children = armoredSoldier.GetComponentsInChildren<SpriteRenderer>();
+
     }
 
 }

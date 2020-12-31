@@ -60,20 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af8725af0fd8154198020a2fe1a39fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5501348012464247701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151374531923407197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f99b99ff8651164f87c383f7b6a31bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spear: {fileID: 4231682904687737730, guid: 17c2a79cccedee64c819cd7870a0c669, type: 3}
-  FireTransform: {fileID: 0}
 --- !u!1001 &136643161037410991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,8 +205,34 @@ PrefabInstance:
     - target: {fileID: 1083860068, guid: b41fecefd8a373541924abbf62e36cb8, type: 3}
       propertyPath: armoredSoldier
       value: 
-      objectReference: {fileID: 4341564743743295294, guid: 071b6a81a36974344a6047c235104258,
+      objectReference: {fileID: 7404423014357036362, guid: d9ff0f2cd49f5704188f6bf3abfdaa69,
         type: 3}
+    - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: spear
+      value: 
+      objectReference: {fileID: 4231682904687737730, guid: 17c2a79cccedee64c819cd7870a0c669,
+        type: 3}
+    - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: maxSeconds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: minSeconds
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: minForce
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
+        type: 3}
+      propertyPath: maxForce
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4219760679990789230, guid: b41fecefd8a373541924abbf62e36cb8,
         type: 3}
       propertyPath: m_Color.g

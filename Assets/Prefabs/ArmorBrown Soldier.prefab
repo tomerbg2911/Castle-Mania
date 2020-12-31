@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 4347875518546249346}
   - component: {fileID: 1969890600635463}
   - component: {fileID: 419364056624693285}
+  - component: {fileID: 883335735722787509}
   m_Layer: 8
   m_Name: ArmorBrown Soldier
   m_TagString: Soldier
@@ -479,6 +480,24 @@ MonoBehaviour:
   armoredSoldier: {fileID: 4341564743743295294}
   poofPrefab: {fileID: 7527533893347877434, guid: c983885a8691ca24c962edb81a750cf9,
     type: 3}
+--- !u!114 &883335735722787509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341564743743295294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f99b99ff8651164f87c383f7b6a31bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spear: {fileID: 5826947329895362596, guid: 7cc1fc0bcbd7050418a3aa3d65b289ca, type: 3}
+  parentWeapon: {fileID: 4342594639924820058}
+  minSeconds: 5
+  maxSeconds: 10
+  minForce: 45
+  maxForce: 60
 --- !u!1 &4341575578631988990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1140,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4344214953730330956}
   - component: {fileID: 4519310584810743066}
-  m_Layer: 8
+  - component: {fileID: 54146702433470511}
+  - component: {fileID: 1391977477735307253}
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1190,6 +1211,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &54146702433470511
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342594639924820058}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 4.74
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1391977477735307253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342594639924820058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b836134cc0ce2914f8be684065b6ae90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rb: {fileID: 0}
+  tower: Right
+  minOffset: -10
+  maxOffset: 10
+  minRotateSpeed: 40
+  maxRotateSpeed: 70
 --- !u!1 &4721125976693153047
 GameObject:
   m_ObjectHideFlags: 0

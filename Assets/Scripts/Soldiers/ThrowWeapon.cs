@@ -5,22 +5,38 @@ using UnityEngine;
 public class ThrowWeapon : MonoBehaviour
 {
     public Rigidbody2D spear;
-    public Transform FireTransform;
-    private GameObject parentWeapon;
-    private Rigidbody2D rb;
-    private float turnSpeed = 5f;
+    public GameObject parentWeapon;
+    private IEnumerator throwRunning;
+    
+
+
+    //vars to make the timing and force of the throw random
+    public int minSeconds = 5;
+    public int maxSeconds = 10;
+    public int minForce = 45;
+    public int maxForce = 60;
+    
     // Start is called before the first frame update
     void Start()
     {
-        parentWeapon = gameObject.transform.Find("Weapon").gameObject;
-        StartCoroutine(throwAfterXsec(5));
-
-
+       parentWeapon = gameObject.transform.Find("Weapon").gameObject;
+        
+        
+       //throwAfterXsec(4f, 30f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (throwRunning == null)
+        {
+           int seconds = Random.Range(minSeconds, maxSeconds);
+           int  force = Random.Range(minForce,maxForce);
+           StartCoroutine(throwAfterXsec(seconds, force));
+            throwRunning = throwAfterXsec(seconds,force); 
+
+        }
+       
 
     }
 
@@ -28,17 +44,23 @@ public class ThrowWeapon : MonoBehaviour
     {
         parentWeapon.transform.Rotate(0f, 1f, 45.0f);
         Rigidbody2D spearInstance = Instantiate(spear, parentWeapon.transform.position, parentWeapon.transform.rotation) as Rigidbody2D;
-        Debug.Log("parentWeapon.transform.up: " + parentWeapon.transform.up);
-        //spearInstance.velocity = force * parentWeapon.transform.up;
+        spearInstance.velocity = force * parentWeapon.transform.up;
         
+
+
 
     }
 
-    IEnumerator throwAfterXsec(float sec)
+    public IEnumerator throwAfterXsec(float sec, float force)
     {
        yield return new WaitForSeconds(sec);
-        throwSpear(25f);
-        Debug.Log("Ive thrown");
+       throwSpear(force);
+       parentWeapon.SetActive(false);
+       yield return new WaitForSeconds(4);
+       parentWeapon.transform.Rotate(0f, -1f, -45.0f);
+       parentWeapon.SetActive(true);
+       Debug.Log("Ive thrown");
+       throwRunning = null;
     }
 
    

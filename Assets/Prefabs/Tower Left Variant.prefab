@@ -204,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 4443295582265891028, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Name
-      value: Tower Left
+      value: Tower Left Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5263662819168380681, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
@@ -332,26 +332,6 @@ PrefabInstance:
       propertyPath: HookIndicators.Array.data[1]
       value: 
       objectReference: {fileID: 7784146272736418279}
-    - target: {fileID: 4443295582406105671, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300062, guid: 250ee570ea7c61746868682510e6528b,
-        type: 3}
-    - target: {fileID: 554447161, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -1.83
-      objectReference: {fileID: 0}
     - target: {fileID: 4443295582571695964, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -372,11 +352,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 17.7
       objectReference: {fileID: 0}
-    - target: {fileID: 554447163, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300064, guid: 250ee570ea7c61746868682510e6528b,
-        type: 3}
     - target: {fileID: 4443295581617512180, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,6 +402,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 11.96
       objectReference: {fileID: 0}
+    - target: {fileID: 554447161, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732894103023713749, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.83
+      objectReference: {fileID: 0}
     - target: {fileID: 6083999783960873847, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Sprite
@@ -438,6 +427,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 266f74a0dace66645bc909eed5dac98c, type: 2}
+    - target: {fileID: 554447163, guid: 230ada1f75e39554491c7c45a5979b55, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300064, guid: 250ee570ea7c61746868682510e6528b,
+        type: 3}
     - target: {fileID: 49610434995719456, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_Color.r
@@ -549,6 +543,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300048, guid: 250ee570ea7c61746868682510e6528b,
+        type: 3}
+    - target: {fileID: 4443295582406105671, guid: 230ada1f75e39554491c7c45a5979b55,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300062, guid: 250ee570ea7c61746868682510e6528b,
         type: 3}
     - target: {fileID: 4443295582633640616, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
