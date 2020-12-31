@@ -99,6 +99,7 @@ TextureImporter:
     21300188: PackCastle01_94
     21300190: PackCastle01_95
     21300192: PackCastle01_96
+    21300194: PackCastle01_97
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -1845,7 +1846,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 427
-        y: 156
+        y: 157
         width: 65
         height: 87
       alignment: 2
@@ -2116,6 +2117,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b67070efdfac19749b51b1410da747d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PackCastle01_97
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1108
+        width: 64
+        height: 87
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4881f5da99d8c6942bdfc4c99ac1740a
       vertices: []
       indices: 
       edges: []

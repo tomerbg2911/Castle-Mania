@@ -12,15 +12,17 @@ public class Tower : MonoBehaviour
 
     //UI related vars
     public HealthBar healthbar;
+    public ManaBar manabar;
     public GameOverMenu gameover;
 
     // gate related vars
     private GameObject gateOpen;
     private GameObject gateClosed;
-    public GameObject explosionPrefab;
+    //public GameObject explosionPrefab;
     public bool isGateOpen;
-    public float delayBeforeClosingTheGate = 2f; // after a new soldier was Instantiated
+    public float gateIsOpenDelay = 10f; // time delay for the gate to be open after a soldier died
     public float delayBeforeInstantiating = 0.5f;  // before a new soldier is Instantiated
+    private float numOfDeadSoldiers;
 
     // soldiers related vars
     public GameObject soldierPrefab;
@@ -40,6 +42,11 @@ public class Tower : MonoBehaviour
     public GameObject[] weapons;
     private int activatedWeaponIdx;
 
+    // weapons indicator
+    public Transform[] HookIndicators;
+    public Transform BazookaIndicator;
+    public Transform DragonIndicator;
+
 
     void Start()
     {
@@ -56,9 +63,12 @@ public class Tower : MonoBehaviour
         //init UI elements
         healthbar = GameObject.Find(string.Format("HealthBar{0}", playerNumber)).GetComponent<HealthBar>();
         healthbar.SetHealth(this.healthPoints);
+        manabar = GameObject.Find(string.Format("ManaBar{0}", playerNumber)).GetComponent<ManaBar>();
+        manabar.SetMana(0);
         gameover = GameObject.Find("Canvas").GetComponent<GameOverMenu>();
 
         // spawn first soldiers
+        numOfDeadSoldiers = 0;
         for (int i = 0; i < maxNumOfSoldiers; i++)
         {
             StartCoroutine(instantiateSoldierEnumerator((i + 1) * delayBeforeInstantiating));
@@ -74,6 +84,8 @@ public class Tower : MonoBehaviour
         {
             SwitchToNextWeapon();
         }
+
+        setGateOpen(numOfDeadSoldiers > 0);
     }
 
     public void SwitchToNextWeapon()
@@ -106,14 +118,20 @@ public class Tower : MonoBehaviour
             switch (currentWeapon.name.ToLower())
             {
                 case "hook":
+                    foreach(Transform hookIndicator in HookIndicators)
+                    {
+                        hookIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
+                    }
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<HookShooting>().enabled = enableThisWeapon;
                     break;
                 case "bazooka":
+                    BazookaIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<Aiming>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<Shooting>().enabled = enableThisWeapon;
                     break;
                 case "dragon":
+                    DragonIndicator.GetComponent<SpriteRenderer>().enabled = enableThisWeapon;
                     currentWeapon.GetComponent<DragonAiming>().enabled = enableThisWeapon;
                     break;
             }
@@ -158,7 +176,7 @@ public class Tower : MonoBehaviour
             currentNumOfSoldiers++;
             countNumOfSoldiers++;
 
-            Invoke("closeGate", delayBeforeClosingTheGate);
+            //Invoke("closeGate", delayBeforeClosingTheGate);
         }
     }
     public void setGateOpen(bool value)
@@ -168,14 +186,14 @@ public class Tower : MonoBehaviour
         gateClosed.SetActive(!isGateOpen);
     }
 
-    public void openGate()
-    {
-        setGateOpen(true);
-    }
-    public void closeGate()
-    {
-        setGateOpen(false);
-    }
+    //public void openGate()
+    //{
+    //    setGateOpen(true);
+    //}
+    //public void closeGate()
+    //{
+    //    setGateOpen(false);
+    //}
 
     // returns a free SoldierSlot or null if it's all taken
     SoldierSlot getAvailableSlot()
@@ -240,16 +258,37 @@ public class Tower : MonoBehaviour
         Invoke("InstantiateSoldier", delayBeforeInstantiating);
     }
 
+    public void OnSoldierIsDead()
+    {
+        numOfDeadSoldiers++;
+        setGateOpen(true);
+        StartCoroutine(reduceNumOfDeadSoldiersEnumerator(gateIsOpenDelay));
+    }
+
+    IEnumerator reduceNumOfDeadSoldiersEnumerator(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        numOfDeadSoldiers--;
+        print("num of dead soldiers is " + numOfDeadSoldiers);
+    }
+
+
     // activated after the hook fame back to its base with a collectable
     public void OnCollectableCatch(GameObject collectableGameObject)
     {
         ManaCollectable manaCollectable;
         if ((manaCollectable = collectableGameObject.GetComponent<ManaCollectable>()) != null)
         {
-            manaAmount += manaCollectable.amountOfMana;
+            setManaAmount(manaAmount + manaCollectable.amountOfMana);
         }
 
         Destroy(collectableGameObject);
+    }
+
+    public void setManaAmount(int amount)
+    {
+        manaAmount = amount;
+        manabar.SetMana(amount);
     }
 
 }
