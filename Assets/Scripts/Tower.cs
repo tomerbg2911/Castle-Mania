@@ -221,6 +221,8 @@ public class Tower : MonoBehaviour
         {
             this.healthPoints -= 10;
             healthbar.SetHealth(this.healthPoints);
+            FindObjectOfType<AudioManager>().Play(string.Format("SABA{0} hit", playerNumber == 1 ? " II" : "")); // play wizard hit sound
+            GetComponent<Animator>().SetTrigger("Got Hit"); // play animation
             print(string.Format("tower {0} got hit", playerNumber));
             Debug.Log("current health:" + this.healthPoints);
 

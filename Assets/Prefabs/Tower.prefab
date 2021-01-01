@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 2841696128003149169}
   - component: {fileID: 5273510328547725152}
   m_Layer: 0
-  m_Name: brown_balcony_0
+  m_Name: brown_balcony_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1872,6 +1872,7 @@ GameObject:
   - component: {fileID: 5981097388802453368}
   - component: {fileID: 6842229660644313139}
   - component: {fileID: 2426070060385302359}
+  - component: {fileID: 2197082243464686721}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -2021,6 +2022,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.624692, y: 11.87237}
   m_EdgeRadius: 0
+--- !u!95 &2197082243464686721
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443295582265891028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f84d343adfa14a84781a71fc6e4cbfa0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4443295582301945087
 GameObject:
   m_ObjectHideFlags: 0
