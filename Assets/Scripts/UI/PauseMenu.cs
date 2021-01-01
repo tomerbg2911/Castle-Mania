@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    public GameObject OptionsMenuUI;
     
 
    
@@ -18,7 +19,15 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                Resume();
+                if (!OptionsMenuUI.activeInHierarchy)
+                {
+                  Resume();
+                }
+                else
+                {
+                    OptionsMenuUI.SetActive(false);
+                    Pause();
+                }
             }
             else
             {
