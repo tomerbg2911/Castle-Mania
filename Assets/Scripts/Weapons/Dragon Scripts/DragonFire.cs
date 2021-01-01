@@ -47,6 +47,7 @@ public class DragonFire : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionPrefab, positionForExplosion, Quaternion.identity) as GameObject;
+        FindObjectOfType<AudioManager>().Play("Explosion");
         StartCoroutine(explosionEnumerator(explosionDelay, positionForExplosion));
     }
 

@@ -221,7 +221,7 @@ public class Tower : MonoBehaviour
         {
             this.healthPoints -= 10;
             healthbar.SetHealth(this.healthPoints);
-            print(String.Format("tower {0} got hit", playerNumber));
+            print(string.Format("tower {0} got hit", playerNumber));
             Debug.Log("current health:" + this.healthPoints);
 
             if (this.healthPoints <= 0)
@@ -235,7 +235,7 @@ public class Tower : MonoBehaviour
         }
         else
         {
-            print(String.Format("tower {0} miss", playerNumber));
+            print(string.Format("tower {0} miss", playerNumber));
 
             // show explosion animation
            // GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform.position, Quaternion.identity) as GameObject;
@@ -281,7 +281,6 @@ public class Tower : MonoBehaviour
         if ((manaCollectable = collectableGameObject.GetComponent<ManaCollectable>()) != null)
         {
             setManaAmount(manaAmount + manaCollectable.amountOfMana);
-            Debug.Log(manaAmount + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             if ((manaAmount >= 1 && manaAmount <= 3) && playerNumber == 1)
             {
                 FindObjectOfType<AudioManager>().Play("SABA - " + manaAmount);
