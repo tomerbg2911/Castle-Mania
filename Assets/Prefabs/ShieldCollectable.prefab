@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 0
   isCatched: 0
-  hookAttached: {fileID: 0}
+  hookAnchorAttached: {fileID: 0}
   anchor: {fileID: 1204152562804261024}
 --- !u!114 &5688710202318100308
 MonoBehaviour:

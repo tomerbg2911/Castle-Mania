@@ -9,6 +9,7 @@ public class Collectable : MonoBehaviour
     public Transform hookAnchorAttached;
     public Transform anchor;
     private Vector3 distanceFromAnchor;
+    public string TowerCaught;
 
     // Start is called before the first frame update
     void Start()

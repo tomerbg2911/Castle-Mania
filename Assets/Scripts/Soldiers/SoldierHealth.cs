@@ -169,9 +169,9 @@ public class SoldierHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name.ToLower().StartsWith("shield"))
+        if(collision.gameObject.name.ToLower().StartsWith("shield") && string.Equals(collision.transform.parent.GetComponent<Collectable>().TowerCaught, transform.parent.name))      //compare if the shield comes from the same tower as soldier
         {
-            print("I GOT SHIELD!"); // TODO: Implement shield animation
+            
 
                                                                          
             if (!(gameObject.name.ToLower().StartsWith("armor")))               // replacing reg-soldier with armed soldier
@@ -193,6 +193,7 @@ public class SoldierHealth : MonoBehaviour
             Destroy(shieldCollectable.gameObject, 0.1f);
 
         }
+        
     }
 
     // instantiate a new armored soldier after waitingTime seconds

@@ -50,6 +50,9 @@ public class Hook : MonoBehaviour
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
             HookedCollectable = collision.gameObject.GetComponent<Collectable>();
 
+            //aviv changes- can delete if works
+            HookedCollectable.TowerCaught = transform.parent.parent.name;
+
             // TODO: rotate the pickup relatively to the hook
             //Vector3 rotation = new Vector3(0,0,0);
             //manaCollectable.transform.Rotate(rotation,Space.Self);

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ShieldCollectable : MonoBehaviour
 {
     public GameObject shieldForSoldiersGameObject;
+    
 
     // Start is called before the first frame update
     void Start()
