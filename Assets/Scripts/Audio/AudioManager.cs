@@ -37,35 +37,37 @@ public class AudioManager : MonoBehaviour
         Play("Game Tune");
     }
 
-    public bool isSoundEnabled(Sound s)
+    public Sound getSoundIfEnabled(string name)
     {
-        
+        Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
             Debug.LogError(string.Format("sound {0} was not found. check AudioManager Script", name));
-            return false;
+            return null;
         }
 
         if (s.disable)
         {
             Debug.LogError(string.Format("sound {0} is disabled. check AudioManager Script", name));
-            return false;
+            return null;
         }
 
-        return true;
+        return s;
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (isSoundEnabled(s))
+        Sound s = getSoundIfEnabled(name);
+        if(s != null)
+        {
             s.source.Play();
+        }
     }
 
     public void Stop(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(isSoundEnabled(s) && s.source.isPlaying)
+        Sound s = getSoundIfEnabled(name);
+        if (s != null && s.source.isPlaying)
         {
             s.source.Stop();
         }

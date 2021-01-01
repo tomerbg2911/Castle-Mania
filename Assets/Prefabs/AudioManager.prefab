@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: Game Tune
     clip: {fileID: 8300000, guid: 52d86b5ca4c1b3c479e10b2cae18d150, type: 3}
     loop: 1
-    disable: 1
+    disable: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
