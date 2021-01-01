@@ -40,6 +40,18 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogError(String.Format("sound {0} was not found. check AudioManager Script", name));
+            return;
+        }
+
+        if (s.disable)
+        {
+            Debug.LogError(String.Format("sound {0} is disabled. check AudioManager Script", name));
+            return;
+        }
+
         s.source.Play();
     }
 

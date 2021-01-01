@@ -26,6 +26,7 @@ public class SoldierHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Soldier Out");
         parentTower = transform.parent.GetComponent<Tower>();
         currentHealth = maxHealth;
         step = speed * Time.deltaTime;

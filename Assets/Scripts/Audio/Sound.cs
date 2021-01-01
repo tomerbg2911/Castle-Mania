@@ -7,6 +7,7 @@ public class Sound
     public string name;
     public AudioClip clip;
     public bool loop;
+    public bool disable;
 
     [Range(0f, 1f)]
     public float volume = 1f;
