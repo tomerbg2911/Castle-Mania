@@ -143,6 +143,7 @@ public class Tower : MonoBehaviour
     IEnumerator instantiateSoldierEnumerator(float waitingTime)
     {
         yield return new WaitForSeconds(waitingTime);
+        // FindObjectOfType<AudioManager>().Play("Soldier Out");
         InstantiateSoldier();
     }
 

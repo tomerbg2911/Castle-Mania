@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 69.83765, y: -0.004760742}
+  m_AnchoredPosition: {x: 69.83765, y: -0.0048828125}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198778247
@@ -996,6 +996,16 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.size
       value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 750110307094650738, guid: 8a00a4576b6ecfa44bbd7d45a822cd1a,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 750110307094650738, guid: 8a00a4576b6ecfa44bbd7d45a822cd1a,
+        type: 3}
+      propertyPath: sounds.Array.data[0].disable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a00a4576b6ecfa44bbd7d45a822cd1a, type: 3}

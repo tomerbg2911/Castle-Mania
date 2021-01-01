@@ -60,6 +60,7 @@ public class Hook : MonoBehaviour
             HookedCollectable.fallingSpeed = 0;
             HookedCollectable.hookAnchorAttached = collectableAnchor;
             hookState = HookState.firedGoingBack;
+            FindObjectOfType<AudioManager>().Play("Hook Grab");
         }
     }
 
@@ -123,6 +124,7 @@ public class Hook : MonoBehaviour
             {
                 GetComponentInParent<Tower>().OnCollectableCatch(HookedCollectable.gameObject);
                 HookedCollectable = null;
+                FindObjectOfType<AudioManager>().Play("Hook Tower");
             }
             else // collectable is shield type
             {
@@ -130,6 +132,7 @@ public class Hook : MonoBehaviour
                 {
                     // this shield collectable already came back to base
                     Destroy(HookedCollectable.gameObject);
+                    FindObjectOfType<AudioManager>().Play("Hook Tower");
                     HookedCollectable = null;
                     isHoldingShield = false;
                 }

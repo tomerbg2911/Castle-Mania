@@ -26,7 +26,10 @@ public class SoldierHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Soldier Out");
+        if (!gameObject.name.ToLower().StartsWith("armor"))
+        {
+            FindObjectOfType<AudioManager>().Play("Soldier Out");
+        }
         parentTower = transform.parent.GetComponent<Tower>();
         currentHealth = maxHealth;
         step = speed * Time.deltaTime;
@@ -179,6 +182,7 @@ public class SoldierHealth : MonoBehaviour
             {
                 StartCoroutine(instantiateArmoredSoldierEnumerator(0.3f));
                 Instantiate(poofPrefab, transform.position, Quaternion.identity);
+                FindObjectOfType<AudioManager>().Play("Poof");
 
                 //destroy regular soldier
                 Destroy(gameObject, 0.5f);

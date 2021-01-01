@@ -32,7 +32,7 @@ public class DragonShooting : MonoBehaviour
 
     public IEnumerator spawnFire()
     {
-
+        FindObjectOfType<AudioManager>().Play("Dragon Fire");
         GetComponent<DragonAiming>().destroyAllTargets();
         for (int i = 1; i <= parentTowerScript.manaAmount; i++)
         {
