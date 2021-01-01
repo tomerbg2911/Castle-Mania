@@ -43,12 +43,9 @@ public class ThrowWeapon : MonoBehaviour
     public void throwSpear(float force)
     {
         parentWeapon.transform.Rotate(0f, 1f, 45.0f);
+        FindObjectOfType<AudioManager>().Play("Soldier Spear");
         Rigidbody2D spearInstance = Instantiate(spear, parentWeapon.transform.position, parentWeapon.transform.rotation) as Rigidbody2D;
         spearInstance.velocity = force * parentWeapon.transform.up;
-        
-
-
-
     }
 
     public IEnumerator throwAfterXsec(float sec, float force)

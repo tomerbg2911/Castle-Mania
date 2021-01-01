@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SoldierHealth : MonoBehaviour
 {
@@ -11,7 +13,6 @@ public class SoldierHealth : MonoBehaviour
     public int currentHealth;
     public bool dead;               // if dead - return to spawnPoint
     public float speed;             // speed in which the player returns to his base
-    public float step;              // calculated from speed, need it for smoothness of motion
 
     private Tower parentTower;
     private SpriteRenderer spriteRenderer;
@@ -32,7 +33,6 @@ public class SoldierHealth : MonoBehaviour
         }
         parentTower = transform.parent.GetComponent<Tower>();
         currentHealth = maxHealth;
-        step = speed * Time.deltaTime;
         dead = false;
         anim = animationPivot.GetComponent<Animator>();
         Children = gameObject.GetComponentsInChildren<SpriteRenderer>();
@@ -43,7 +43,7 @@ public class SoldierHealth : MonoBehaviour
     {
         if (dead == true) // if the soldier is dead return to spawnPoint
         {
-            nakedSoldier.transform.position = Vector3.MoveTowards(nakedSoldier.transform.position, spawnPoint.position, step);
+            nakedSoldier.transform.position = Vector3.MoveTowards(nakedSoldier.transform.position, spawnPoint.position, speed * Time.deltaTime);
             if (Vector3.Distance(nakedSoldier.transform.position, spawnPoint.position) < 0.1f)
             {
                 // the soldier reached spawnPoint
@@ -55,7 +55,7 @@ public class SoldierHealth : MonoBehaviour
         }
         else // move towards soldierSlot
         {
-            transform.position = Vector3.MoveTowards(transform.position, soldierSlot.transform.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, soldierSlot.transform.position, speed * Time.deltaTime);
         }
     }
 
@@ -80,6 +80,23 @@ public class SoldierHealth : MonoBehaviour
                     parentTower.OnSoldierIsDead(); // inform tower that the soldier is dead
                     dead = true;
                     gameObject.GetComponent<ThrowWeapon>().enabled = false;
+
+                    // play naked soldier sound
+                    string nakedSoldierTowerIndicator = GetComponentInParent<Tower>().playerNumber == 1 ? "" : " II"; // for different SFX
+                    char animationSize = 'S';
+                    switch(soldierSlot.slotNumber)
+                    {
+                        case 1:
+                            animationSize = 'S';
+                            break;
+                        case 2:
+                            animationSize = 'M';
+                            break;
+                        case 3:
+                            animationSize = 'L';
+                            break;
+                    }
+                    FindObjectOfType<AudioManager>().Play(string.Format("Naked Soldier{0} {1}", nakedSoldierTowerIndicator, animationSize));
                 }
                 else if  (amount <= 0)        // we are taking damage
                 {

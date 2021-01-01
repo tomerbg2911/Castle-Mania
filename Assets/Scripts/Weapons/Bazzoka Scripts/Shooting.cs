@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ public class Shooting : MonoBehaviour
     private float currentLaunchForce;
     private float ChargeSpeed;  
     private bool Fired;
-
+    private string bazookaSoundIndicator;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class Shooting : MonoBehaviour
         FireButton = GetComponentInParent<Tower>().shoot;
         ChargeSpeed = (MaxLaunchForce - MinLaunchForce) / MaxChargeTime;
         AimSlider.gameObject.SetActive(false);
+        bazookaSoundIndicator = GetComponentInParent<Tower>().playerNumber == 1 ? "" : " II"; // for different SFX
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class Shooting : MonoBehaviour
                 Fired = false;
                 currentLaunchForce = MinLaunchForce;
                 AimSlider.gameObject.SetActive(true);
+                FindObjectOfType<AudioManager>().Play(string.Format("Bazooka Load{0}", bazookaSoundIndicator));
                 // ShootingAudio.clip = ChargingClip;
                 // ShootingAudio.Play();
             }
@@ -90,6 +93,10 @@ public class Shooting : MonoBehaviour
 
         // play flare animation
         FlareTransform.GetComponent<Animator>().SetTrigger("Shoot");
+
+        // play shooting sound
+        FindObjectOfType<AudioManager>().Stop(string.Format("Bazooka Load{0}", bazookaSoundIndicator));
+        FindObjectOfType<AudioManager>().Play(string.Format("Bazooka Shot{0}", bazookaSoundIndicator));
 
         // start shooting delay
         canShoot = false;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,14 +19,10 @@ public class DragonShooting : MonoBehaviour
         parentTowerScript = GetComponentInParent<Tower>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Shoot()
     {
+        string sabaIndicator = GetComponentInParent<Tower>().playerNumber == 1 ? "" : " II"; // for different SFX
+        FindObjectOfType<AudioManager>().Play(string.Format("SABA{0} Fire", sabaIndicator));
         isShooting = true;
         animator.SetBool("IsShooting", true);
     }

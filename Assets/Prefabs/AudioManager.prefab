@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: Game Tune
     clip: {fileID: 8300000, guid: 52d86b5ca4c1b3c479e10b2cae18d150, type: 3}
     loop: 1
-    disable: 1
+    disable: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -100,7 +100,21 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Bazooka Shot II
+    clip: {fileID: 8300000, guid: c846736906fc29d42945c56e9702e2a4, type: 3}
+    loop: 0
+    disable: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   - name: Bazooka Load
+    clip: {fileID: 8300000, guid: 55686da0bec839240b72bdfa89aac31a, type: 3}
+    loop: 0
+    disable: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Bazooka Load II
     clip: {fileID: 8300000, guid: 55686da0bec839240b72bdfa89aac31a, type: 3}
     loop: 0
     disable: 0

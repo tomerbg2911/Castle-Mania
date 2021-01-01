@@ -39,7 +39,6 @@ public class moveSpear : MonoBehaviour
         finalRotation.transform.rotation = target.transform.rotation;
         finalRotation.transform.Rotate(0, 0, offsetFinalRotation);
         Destroy(gameObject, 4);
-
     }
 
     private void FixedUpdate()
