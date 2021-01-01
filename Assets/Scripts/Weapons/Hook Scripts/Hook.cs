@@ -62,6 +62,16 @@ public class Hook : MonoBehaviour
             hookState = HookState.firedGoingBack;
             FindObjectOfType<AudioManager>().Play("Hook Grab");
         }
+
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {    
+        if (collision.gameObject.tag == "Wall")
+        {
+            hookState = HookState.firedGoingBack;
+            Debug.Log("Ive hit the wall with hook");
+        }
     }
 
     // Update is called once per frame

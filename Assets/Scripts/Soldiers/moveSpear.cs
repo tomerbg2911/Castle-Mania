@@ -58,6 +58,8 @@ public class moveSpear : MonoBehaviour
         Destroy(finalRotation);
     }
 
+
+
     // Update is called once per frame
     /* void FixedUpdate()
      {

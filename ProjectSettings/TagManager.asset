@@ -7,6 +7,7 @@ TagManager:
   - PickUp
   - Soldier
   - Hook
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - SoldierShield
   - SpearsColliders
   - Throwable Weapons
-  - 
+  - Wall
   - 
   - 
   - 
