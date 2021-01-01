@@ -48,6 +48,11 @@ public class DragonShooting : MonoBehaviour
         parentTowerScript.setManaAmount(0);
     }
 
+    public void dragonWings()
+    {
+        FindObjectOfType<AudioManager>().Play("Dragon Wings");
+    }
+
     public void OnAnimationFinished()
     {
         isShooting = false;
