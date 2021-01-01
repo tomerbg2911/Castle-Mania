@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
+    // gameplay related vars
     public int playerNumber;
     public int healthPoints = 100;
     public int manaAmount = 0;
 
-    //UI related vars
+    // UI related vars
     public HealthBar healthbar;
     public ManaBar manabar;
     public GameOverMenu gameover;
@@ -47,6 +49,9 @@ public class Tower : MonoBehaviour
     public Transform BazookaIndicator;
     public Transform DragonIndicator;
 
+    // damage holes
+    public Transform holesParentTransform;
+    private Stack<Transform> holesTransformsStack;
 
     void Start()
     {
@@ -76,6 +81,16 @@ public class Tower : MonoBehaviour
 
         // set manaAmount amount to 0
         manaAmount = 0;
+
+        // get a shuffled holes transforms stack
+        Transform[] holes = new Transform[holesParentTransform.childCount];
+        for(int i = 0; i < holes.Length; i++)
+        {
+            holes[i] = holesParentTransform.GetChild(i);
+        }
+        Array.Sort(holes, (i_Transform, i_Transform1) => Random.Range(-2,1));
+        holesTransformsStack = new Stack<Transform>(holes);
+        
     }
 
     void Update()
@@ -223,6 +238,7 @@ public class Tower : MonoBehaviour
             healthbar.SetHealth(this.healthPoints);
             FindObjectOfType<AudioManager>().Play(string.Format("SABA{0} hit", playerNumber == 1 ? " II" : "")); // play wizard hit sound
             GetComponent<Animator>().SetTrigger("Got Hit"); // play animation
+            holesTransformsStack.Pop().gameObject.SetActive(true); // show a new hole on the tower
             print(string.Format("tower {0} got hit", playerNumber));
             Debug.Log("current health:" + this.healthPoints);
 
