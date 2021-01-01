@@ -7,6 +7,7 @@ TagManager:
   - PickUp
   - Soldier
   - Hook
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -74,7 +74,6 @@ MonoBehaviour:
   currentHealth: 0
   dead: 1
   speed: 10
-  step: 0
   animationPivot: {fileID: 4067463011463605754}
   nakedSoldier: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
     type: 3}
@@ -107,6 +106,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spear: {fileID: 7364794305978300700, guid: 1355e10730199274aa7ca7ae76c16ab5, type: 3}
+  parentWeapon: {fileID: 0}
+  minSeconds: 15
+  maxSeconds: 30
+  minForce: 45
+  maxForce: 60
 --- !u!1001 &4070379290845234294
 PrefabInstance:
   m_ObjectHideFlags: 0

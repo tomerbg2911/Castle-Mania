@@ -216,12 +216,12 @@ PrefabInstance:
     - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
         type: 3}
       propertyPath: maxSeconds
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
         type: 3}
       propertyPath: minSeconds
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7772710123906405879, guid: b41fecefd8a373541924abbf62e36cb8,
         type: 3}

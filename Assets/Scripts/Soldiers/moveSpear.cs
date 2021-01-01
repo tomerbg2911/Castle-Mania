@@ -58,13 +58,7 @@ public class moveSpear : MonoBehaviour
         Destroy(finalRotation);
     }
 
-   /* private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("hit the wallll");
-        move = false;
-        //rb.simulated = false;
-        Destroy(finalRotation);
-    }*/
+
 
     // Update is called once per frame
     /* void FixedUpdate()
