@@ -19,6 +19,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void MuteSound(bool mute)
+    {
+        AudioListener.volume = mute ? 0f : 1f;
+    }
+
     public void Update()
     {
 
