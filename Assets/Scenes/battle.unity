@@ -9460,6 +9460,16 @@ PrefabInstance:
       propertyPath: sounds.Array.data[30].clip
       value: 
       objectReference: {fileID: 8300000, guid: b6d141d5700638f4f876b26fd04ab261, type: 3}
+    - target: {fileID: 750110307094650738, guid: 8a00a4576b6ecfa44bbd7d45a822cd1a,
+        type: 3}
+      propertyPath: sounds.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6f6fe17d0c389a488c758b21cbbe3da, type: 3}
+    - target: {fileID: 750110307094650738, guid: 8a00a4576b6ecfa44bbd7d45a822cd1a,
+        type: 3}
+      propertyPath: sounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6f6fe17d0c389a488c758b21cbbe3da, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a00a4576b6ecfa44bbd7d45a822cd1a, type: 3}
 --- !u!1001 &4905467077729833988
