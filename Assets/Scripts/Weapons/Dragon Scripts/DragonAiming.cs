@@ -68,9 +68,11 @@ public class DragonAiming : MonoBehaviour
                 ) // disable previous target movement (if necessary)
                 {
                     dragonTargets[countTargets - 1].enabled = false;
+                    FindObjectOfType<AudioManager>().Play("Target Lock - " + countTargets);
+
                 }
 
-                if(countTargets < numOfTargets) // instantiate a new target
+                if (countTargets < numOfTargets) // instantiate a new target
                 {
                     InstantiateTarget();
                 }

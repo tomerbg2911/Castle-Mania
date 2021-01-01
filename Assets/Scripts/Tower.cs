@@ -143,6 +143,7 @@ public class Tower : MonoBehaviour
     IEnumerator instantiateSoldierEnumerator(float waitingTime)
     {
         yield return new WaitForSeconds(waitingTime);
+        // FindObjectOfType<AudioManager>().Play("Soldier Out");
         InstantiateSoldier();
     }
 
@@ -280,6 +281,15 @@ public class Tower : MonoBehaviour
         if ((manaCollectable = collectableGameObject.GetComponent<ManaCollectable>()) != null)
         {
             setManaAmount(manaAmount + manaCollectable.amountOfMana);
+            Debug.Log(manaAmount + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            if ((manaAmount >= 1 && manaAmount <= 3) && playerNumber == 1)
+            {
+                FindObjectOfType<AudioManager>().Play("SABA - " + manaAmount);
+            }
+            if ((manaAmount >= 1 && manaAmount <= 3) && playerNumber == 2)
+            {
+                FindObjectOfType<AudioManager>().Play("SABA II - " + manaAmount);
+            }
         }
 
         Destroy(collectableGameObject);

@@ -27,6 +27,7 @@ public class HookShooting : MonoBehaviour
     {
         if (Input.GetKeyDown(shoot) && hook.hookState == Hook.HookState.rotating)
         {
+            FindObjectOfType<AudioManager>().Play("Hook Out");
             hook.Shoot();
         }
     }
