@@ -65,12 +65,12 @@ public class Hook : MonoBehaviour
 
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {    
-        if (collision.gameObject.tag == "Wall")
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Wall"))
         {
             hookState = HookState.firedGoingBack;
-            Debug.Log("Ive hit the wall with hook");
         }
     }
 

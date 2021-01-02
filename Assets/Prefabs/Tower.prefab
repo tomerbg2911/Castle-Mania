@@ -2282,7 +2282,7 @@ MonoBehaviour:
   manabar: {fileID: 0}
   gameover: {fileID: 0}
   isGateOpen: 0
-  gateIsOpenDelay: 8
+  gateIsOpenDelay: 10
   delayBeforeInstantiating: 0.5
   soldierPrefab: {fileID: 4069513671300801522, guid: b41fecefd8a373541924abbf62e36cb8,
     type: 3}
@@ -2301,7 +2301,9 @@ MonoBehaviour:
   - {fileID: 4443295582331898987}
   - {fileID: 4236573560590349312}
   - {fileID: 6083999783960873841}
-  HookIndicators: []
+  HookIndicators:
+  - {fileID: 6904364619199023432}
+  - {fileID: 3406515525828926745}
   BazookaIndicator: {fileID: 7405333740258118340}
   DragonIndicator: {fileID: 1878091998247863937}
   holesParentTransform: {fileID: 5340459250710820352}

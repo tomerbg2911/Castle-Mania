@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using System.Linq;
 using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
@@ -33,6 +34,9 @@ public class Tower : MonoBehaviour
     public int maxNumOfSoldiers = 3;
     public int currentNumOfSoldiers = 0;
     private int countNumOfSoldiers = 0;
+
+    //Player Is Dead vars
+    public GameObject nakedSoldier;
 
     // keyboard keys
     public KeyCode up;
@@ -240,7 +244,9 @@ public class Tower : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Got Hit"); // play animation
             if (this.healthPoints <= 0)
             {
-                gameover.playerIsDead = true;
+               
+                onPlayerIsDead();
+                return;
             }
             holesTransformsStack.Pop().gameObject.SetActive(true); // show a new hole on the tower
             print(string.Format("tower {0} got hit", playerNumber));
@@ -316,6 +322,25 @@ public class Tower : MonoBehaviour
     {
         manaAmount = amount;
         manabar.SetMana(amount);
+    }
+
+    private void onPlayerIsDead()
+    {
+        gameover.playerIsDead = true;
+        Transform[] soldiers = gameObject.GetComponentsInChildren<Transform>();
+        soldiers = soldiers.Where(child => child.tag == "Soldier").ToArray();
+        int rotation = 1;
+        foreach (Transform soldier in soldiers)
+        {
+            //soldier.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //soldier.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            nakedSoldier = Instantiate(nakedSoldier, soldier.position, soldier.rotation);
+            nakedSoldier.transform.Rotate(0, rotation, 0);
+          
+            Destroy(soldier.gameObject);
+            rotation += 180;
+        }
+
     }
 
 }

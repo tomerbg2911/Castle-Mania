@@ -13,7 +13,7 @@ public class CollectablesSpawn : MonoBehaviour
     public float minFallingSpeed;
     public float maxFallingSpeed;
     public float initYPosition;
-    public float manaCollectableProb = 0.7f;
+    public float manaCollectableProb = 0.6f;
     private float shieldCollectableProb;
 
     // Start is called before the first frame update
