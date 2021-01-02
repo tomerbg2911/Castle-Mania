@@ -238,14 +238,14 @@ public class Tower : MonoBehaviour
             healthbar.SetHealth(this.healthPoints);
             FindObjectOfType<AudioManager>().Play(string.Format("SABA{0} hit", playerNumber == 1 ? " II" : "")); // play wizard hit sound
             GetComponent<Animator>().SetTrigger("Got Hit"); // play animation
-            holesTransformsStack.Pop().gameObject.SetActive(true); // show a new hole on the tower
-            print(string.Format("tower {0} got hit", playerNumber));
-            Debug.Log("current health:" + this.healthPoints);
-
             if (this.healthPoints <= 0)
             {
                 gameover.playerIsDead = true;
             }
+            holesTransformsStack.Pop().gameObject.SetActive(true); // show a new hole on the tower
+            print(string.Format("tower {0} got hit", playerNumber));
+            Debug.Log("current health:" + this.healthPoints);
+
 
             // show explosion animation
            // GameObject explosion = Instantiate(explosionPrefab, gateOpen.transform) as GameObject;

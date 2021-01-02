@@ -48,7 +48,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 52d86b5ca4c1b3c479e10b2cae18d150, type: 3}
     loop: 1
     disable: 0
-    volume: 1
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   - name: Menu Buttons
@@ -108,14 +108,14 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Bazooka Load
-    clip: {fileID: 8300000, guid: 55686da0bec839240b72bdfa89aac31a, type: 3}
+    clip: {fileID: 8300000, guid: a6f6fe17d0c389a488c758b21cbbe3da, type: 3}
     loop: 0
     disable: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Bazooka Load II
-    clip: {fileID: 8300000, guid: 55686da0bec839240b72bdfa89aac31a, type: 3}
+    clip: {fileID: 8300000, guid: a6f6fe17d0c389a488c758b21cbbe3da, type: 3}
     loop: 0
     disable: 0
     volume: 1
@@ -255,7 +255,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Soldier Spear
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: b6d141d5700638f4f876b26fd04ab261, type: 3}
     loop: 0
     disable: 0
     volume: 1
@@ -276,21 +276,21 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Target Lock - 1
-    clip: {fileID: 8300000, guid: 80c703c59c7e7304f951eda812dc47ac, type: 3}
+    clip: {fileID: 8300000, guid: 02c68b96dee0a874fb00281f3963288f, type: 3}
     loop: 0
     disable: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Target Lock - 2
-    clip: {fileID: 8300000, guid: b4ccd5ab1858f8d4f8be57ec115f1b39, type: 3}
+    clip: {fileID: 8300000, guid: 928370ce09238d94ea79cde042fc7eca, type: 3}
     loop: 0
     disable: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Target Lock - 3
-    clip: {fileID: 8300000, guid: 71be07bdfb8d3384a94ff19e8ca2b8d0, type: 3}
+    clip: {fileID: 8300000, guid: 1d65b827c02f049478c4502e9c9c5f8b, type: 3}
     loop: 0
     disable: 0
     volume: 1
