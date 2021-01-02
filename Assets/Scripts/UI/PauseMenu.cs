@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            FindObjectOfType<AudioManager>().Play("Menu Buttons");
             if (GameIsPaused)
             {
                 if (!OptionsMenuUI.activeInHierarchy)
