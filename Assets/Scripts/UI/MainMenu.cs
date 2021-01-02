@@ -7,14 +7,19 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject OptionsMenuUI;
     public GameObject MainMenuUI;
+    public GameObject SoundOnButton;
+    public GameObject SoundOffButton;
+
     public void PlayGame()
     {
+        FindObjectOfType<AudioManager>().Play("Menu Buttons");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1 );
         
     }
 
     public void QuitGame()
     {
+        FindObjectOfType<AudioManager>().Play("Menu Buttons");
         Debug.Log("QUIT!");
         Application.Quit();
     }
@@ -26,6 +31,8 @@ public class MainMenu : MonoBehaviour
 
     public void Update()
     {
+        SoundOnButton.SetActive(AudioListener.volume == 1);
+        SoundOffButton.SetActive(AudioListener.volume == 0);
 
         if (Input.GetKeyDown(KeyCode.Escape) && OptionsMenuUI.activeInHierarchy)
         {
