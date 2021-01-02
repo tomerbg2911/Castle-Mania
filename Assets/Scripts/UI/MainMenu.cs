@@ -9,17 +9,22 @@ public class MainMenu : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject SoundOnButton;
     public GameObject SoundOffButton;
+    
+    public void PlayButtonSound()
+    {
+        FindObjectOfType<AudioManager>().Play("Menu Buttons");
+    }
 
     public void PlayGame()
     {
-        FindObjectOfType<AudioManager>().Play("Menu Buttons");
+        PlayButtonSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1 );
         
     }
 
     public void QuitGame()
     {
-        FindObjectOfType<AudioManager>().Play("Menu Buttons");
+        PlayButtonSound();
         Debug.Log("QUIT!");
         Application.Quit();
     }
