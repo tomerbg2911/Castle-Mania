@@ -327,7 +327,7 @@ public class Tower : MonoBehaviour
 
     private void onPlayerIsDead()
     {
-        gameover.playerIsDead = true;
+        gameover.LostPlayerNumber = playerNumber;
         Transform[] soldiers = gameObject.GetComponentsInChildren<Transform>();
         soldiers = soldiers.Where(child => child.tag == "Soldier").ToArray();
         Transform wizard = transform.Find("wizard parent");
