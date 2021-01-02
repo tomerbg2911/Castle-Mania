@@ -4423,36 +4423,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &935636813
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 935636814}
-  m_Layer: 0
-  m_Name: nakedWizard
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &935636814
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935636813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55288345, y: 6.7566175, z: 0.515625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939130457
 GameObject:
   m_ObjectHideFlags: 0
@@ -7757,17 +7727,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7929346880031909106, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: healthPoints
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929346880031909106, guid: 230ada1f75e39554491c7c45a5979b55,
-        type: 3}
-      propertyPath: nakedSoldier
-      value: 
-      objectReference: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
-        type: 3}
     - target: {fileID: 6083999783960873846, guid: 230ada1f75e39554491c7c45a5979b55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10614,17 +10573,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6763665815899731037, guid: 23601f65f1de0b743a9e2a8af33467da,
+    - target: {fileID: 2432513669025819535, guid: 23601f65f1de0b743a9e2a8af33467da,
         type: 3}
-      propertyPath: healthPoints
-      value: 10
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6763665815899731037, guid: 23601f65f1de0b743a9e2a8af33467da,
-        type: 3}
-      propertyPath: nakedSoldier
-      value: 
-      objectReference: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23601f65f1de0b743a9e2a8af33467da, type: 3}
 --- !u!1 &7623348489235431800

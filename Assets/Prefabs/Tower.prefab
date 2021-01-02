@@ -2276,7 +2276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
-  healthPoints: 100
+  healthPoints: 10
   manaAmount: 0
   healthbar: {fileID: 0}
   manabar: {fileID: 0}
@@ -2293,6 +2293,10 @@ MonoBehaviour:
   - {fileID: 1790494205}
   maxNumOfSoldiers: 5
   currentNumOfSoldiers: 5
+  nakedSoldier: {fileID: 5195478508483824427, guid: 6af7ddc7a262bb249b2fb467485317e3,
+    type: 3}
+  nakedWizard: {fileID: 6278416280242523078, guid: 7a3d4bed99a14fc458d2b8deeb3f67d0,
+    type: 3}
   up: 273
   down: 274
   shoot: 276

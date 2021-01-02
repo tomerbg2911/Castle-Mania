@@ -37,6 +37,7 @@ public class Tower : MonoBehaviour
 
     //Player Is Dead vars
     public GameObject nakedSoldier;
+    public GameObject nakedWizard;
 
     // keyboard keys
     public KeyCode up;
@@ -329,6 +330,9 @@ public class Tower : MonoBehaviour
         gameover.playerIsDead = true;
         Transform[] soldiers = gameObject.GetComponentsInChildren<Transform>();
         soldiers = soldiers.Where(child => child.tag == "Soldier").ToArray();
+        Transform wizard = transform.Find("wizard parent");
+        nakedWizard = Instantiate(nakedWizard, wizard.position, wizard.rotation);
+        Destroy(wizard.gameObject);
         int rotation = 1;
         foreach (Transform soldier in soldiers)
         {
