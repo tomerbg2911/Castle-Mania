@@ -2276,7 +2276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
-  healthPoints: 10
+  healthPoints: 100
   manaAmount: 0
   healthbar: {fileID: 0}
   manabar: {fileID: 0}
@@ -3856,6 +3856,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2116985728360721453, guid: c528d3fb5f270064a919fbee198d6bc5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3426307944063140999, guid: c528d3fb5f270064a919fbee198d6bc5,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -3931,11 +3936,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.17
       objectReference: {fileID: 0}
-    - target: {fileID: 2116985728360721453, guid: c528d3fb5f270064a919fbee198d6bc5,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c528d3fb5f270064a919fbee198d6bc5, type: 3}
 --- !u!4 &2300829421889383916 stripped
@@ -3961,6 +3961,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bazooka
+      objectReference: {fileID: 0}
+    - target: {fileID: 532151528345461509, guid: 72489ebd920ad9847956ceba44a70662,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 532151528345461509, guid: 72489ebd920ad9847956ceba44a70662,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 532151528083553383, guid: 72489ebd920ad9847956ceba44a70662,
         type: 3}
@@ -4026,16 +4036,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 532151528345461509, guid: 72489ebd920ad9847956ceba44a70662,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 532151528345461509, guid: 72489ebd920ad9847956ceba44a70662,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 532151528083553376, guid: 72489ebd920ad9847956ceba44a70662,
         type: 3}
