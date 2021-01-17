@@ -24,4 +24,4 @@ Castle Mania !
 <b>More details and download links on our [itch.io page](https://sikth394.itch.io/castle-mania)<b>
 
 ## Credits
-![credits](Assets/Sprites/UI/credits-small.png)
+![credits](Assets/Sprites/UI/credits-extra-small.png)
