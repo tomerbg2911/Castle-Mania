@@ -24,4 +24,6 @@ Castle Mania !
 <b>More details and download links on our [itch.io page](https://sikth394.itch.io/castle-mania)<b>
 
 ## Credits
+[Aviv Weissman](https://github.com/sikth394), [Ron Ben Shimon](https://github.com/ronbs123) & [Tomer Ben Gigi](https://github.com/tomerbg2911)
+
 ![credits](Assets/Sprites/UI/credits-extra-small.png)
